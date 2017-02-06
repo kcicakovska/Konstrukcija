@@ -1,0 +1,149 @@
+package com.example.Model;
+
+import javax.persistence.*;
+
+/**
+ * Created by Muttley on 1/16/2017.
+ */
+@Entity
+@Table(name = "soba", schema = "example", catalog = "")
+public class SobaEntity {
+    private int id;
+    private HotelEntity hotelByHotel;
+    private String tipNaSoba;
+    private Integer brSoba;
+    private Byte klima;
+    private Byte parno;
+    private Byte terasa;
+    private Byte pogled;
+    private Byte internet;
+    private Byte televizor;
+    private HotelEntity hotelByHotelId;
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SobaEntity that = (SobaEntity) o;
+
+        if (id != that.id) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "hotel_id", referencedColumnName = "ID")
+    public HotelEntity getHotelByHotel() {
+        return hotelByHotel;
+    }
+
+    public void setHotelByHotel(HotelEntity hotelByHotel) {
+        this.hotelByHotel = hotelByHotel;
+    }
+
+    @Basic
+    @Column(name = "tip_na_soba")
+    public String getTipNaSoba() {
+        return tipNaSoba;
+    }
+
+    public void setTipNaSoba(String tipNaSoba) {
+        this.tipNaSoba = tipNaSoba;
+    }
+
+    @Basic
+    @Column(name = "br_soba")
+    public Integer getBrSoba() {
+        return brSoba;
+    }
+
+    public void setBrSoba(Integer brSoba) {
+        this.brSoba = brSoba;
+    }
+
+    @Basic
+    @Column(name = "klima")
+    public Byte getKlima() {
+        return klima;
+    }
+
+    public void setKlima(Byte klima) {
+        this.klima = klima;
+    }
+
+    @Basic
+    @Column(name = "parno")
+    public Byte getParno() {
+        return parno;
+    }
+
+    public void setParno(Byte parno) {
+        this.parno = parno;
+    }
+
+    @Basic
+    @Column(name = "terasa")
+    public Byte getTerasa() {
+        return terasa;
+    }
+
+    public void setTerasa(Byte terasa) {
+        this.terasa = terasa;
+    }
+
+    @Basic
+    @Column(name = "pogled")
+    public Byte getPogled() {
+        return pogled;
+    }
+
+    public void setPogled(Byte pogled) {
+        this.pogled = pogled;
+    }
+
+    @Basic
+    @Column(name = "internet")
+    public Byte getInternet() {
+        return internet;
+    }
+
+    public void setInternet(Byte internet) {
+        this.internet = internet;
+    }
+
+    @Basic
+    @Column(name = "televizor")
+    public Byte getTelevizor() {
+        return televizor;
+    }
+
+    public void setTelevizor(Byte televizor) {
+        this.televizor = televizor;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "hotel_id", referencedColumnName = "ID",insertable=false, updatable=false)
+    public HotelEntity getHotelByHotelId() {
+        return hotelByHotelId;
+    }
+
+    public void setHotelByHotelId(HotelEntity hotelByHotelId) {
+        this.hotelByHotelId = hotelByHotelId;
+    }
+}

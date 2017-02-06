@@ -1,0 +1,50 @@
+package com.example.Model;
+
+import javax.persistence.*;
+
+/**
+ * Created by Muttley on 1/16/2017.
+ */
+@Entity
+@Table(name = "validator", schema = "example", catalog = "")
+public class ValidatorEntity {
+    private int id;
+    private KorisnikEntity korisnikById;
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ValidatorEntity that = (ValidatorEntity) o;
+
+        if (id != that.id) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "ID", referencedColumnName = "ID", nullable = false,insertable=false, updatable=false)
+    public KorisnikEntity getKorisnikById() {
+        return korisnikById;
+    }
+
+    public void setKorisnikById(KorisnikEntity korisnikById) {
+        this.korisnikById = korisnikById;
+    }
+}

@@ -1,0 +1,99 @@
+'use strict';
+
+app.controller('userController',['$scope','$window','UserService', function($scope,$window,UserService) {
+	var self = this;
+
+
+	self.checkLogged=false;
+	self.user={
+        korisnickoIme:'',
+        lozinka:'',
+        loginStatus:'',
+        ime:'',
+        prezime:'',
+        embg:'',
+        email:'',
+        drzava:'',
+        grad:'',
+        adresa:'',
+        notifikacijaDo:'',
+        notifikacijaOd:''
+	}
+	self.users = [];
+
+		self.checkSingIn = function(){
+		UserService.LogginUser(self.user).then(
+				function (d) {
+
+					self.user = d;
+					console.log(self.user.korisnickoIme+"   Ovaa e korisnikot");
+                    if(self.user.role==='admin'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="/#/admin";
+					}else if(self.user.role==='korisnik'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="/#/korisnik";
+					}else if(self.user.role==='direktor'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="/#/direktor";
+					}else if(self.user.role==='validator'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="/#/validator";
+					}else if(self.user.role==='tehnickapodrshka'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="#/tehnickapodrska";
+					}
+                },
+                function (errResponse) {
+                    console.log('Error while fetching ticket in TicketController');
+                }
+)}
+self.Register = function(){
+	HotelServices.Register(self.user).then(
+				function (d) {
+					console.log(self.user.userName+" "+ self.user.role+"   Ovaa e korisnikot");
+                    if(self.user.role==='admin'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="#/admin";
+					}else if(self.user.role==='korisnik'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="#/korisnik";
+					}else if(self.user.role==='direktor'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="#/direktor";
+					}else if(self.user.role==='validator'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="#/validator";
+					}else if(self.user.role==='tehnickapodrshka'){
+						self.checkLogged=true;
+						$('#htlfndr-sing-in').modal('hide');
+						location.href ="#/tehnickapodrska";
+					}
+                },
+                function (errResponse) {
+                    console.log('Error while fetching ticket in TicketController');
+                }
+)}
+	self.Logout = function(){
+		self.user = {};
+		self.checkLogged=false;
+	}
+/*self.see = function(){
+	var tmp = location.href;
+	var temp = tmp.split("#/");
+	if(!self.checkLogged && temp.length > 0){
+		location.href="/"
+	}
+}
+self.see();*/
+
+}])

@@ -1,0 +1,51 @@
+package com.example.Model;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+
+public class OdgovorZaPomoshPK implements Serializable {
+    private int id;
+    private int idTehnicka;
+
+    @Column(name = "ID")
+    @Id
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Column(name = "id_tehnicka")
+    @Id
+    public int getIdTehnicka() {
+        return idTehnicka;
+    }
+
+    public void setIdTehnicka(int idTehnicka) {
+        this.idTehnicka = idTehnicka;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        OdgovorZaPomoshPK that = (OdgovorZaPomoshPK) o;
+
+        if (id != that.id) return false;
+        if (idTehnicka != that.idTehnicka) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + idTehnicka;
+        return result;
+    }
+}

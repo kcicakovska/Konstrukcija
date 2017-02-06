@@ -1,0 +1,14 @@
+app.factory('UserService', ['$http', '$q', function($http, $q){
+    return{
+        LogginUser:function(tmp){ 
+          return $http.post('http://localhost:9080/login',tmp)
+                .then(
+                function(d){
+                   return d.data;
+                },
+                function(errResponse){
+                    console.log('Error while logging in LogginUser UserService');
+                }
+    )}
+			}
+}])

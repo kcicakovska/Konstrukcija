@@ -1,0 +1,18 @@
+package com.example.Repository;
+
+import com.example.Model.KorisnikEntity;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+/**
+ * Created by Jadranka on 19.01.2017.
+ */
+@Repository
+public interface KorisnikRepository extends CrudRepository<KorisnikEntity,Integer>{
+    @Override
+    Iterable<KorisnikEntity> findAll();
+
+    @Override
+     KorisnikEntity save(KorisnikEntity korisnikEntity);
+
+}

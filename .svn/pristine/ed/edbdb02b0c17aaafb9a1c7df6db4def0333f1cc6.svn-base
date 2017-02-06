@@ -1,0 +1,59 @@
+package com.example.Model;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "recepcioner", schema = "example", catalog = "")
+public class RecepcionerEntity {
+    private int id;
+    private DirektorEntity direktorByIdDirektor;
+    private KorisnikEntity korisnikById;
+
+    @Id
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        RecepcionerEntity that = (RecepcionerEntity) o;
+
+        if (id != that.id) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_direktor", referencedColumnName = "ID", nullable = false)
+    public DirektorEntity getDirektorByIdDirektor() {
+        return direktorByIdDirektor;
+    }
+
+    public void setDirektorByIdDirektor(DirektorEntity direktorByIdDirektor) {
+        this.direktorByIdDirektor = direktorByIdDirektor;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "ID", referencedColumnName = "ID", nullable = false)
+    public KorisnikEntity getKorisnikById() {
+        return korisnikById;
+    }
+
+    public void setKorisnikById(KorisnikEntity korisnikById) {
+        this.korisnikById = korisnikById;
+    }
+}

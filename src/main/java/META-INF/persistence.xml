@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NewPersistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class> com.example.Model.HotelEntity</class>
+        <class>com.example.Model.SobaEntity</class>
+        <class>com.example.Model.KorisnikEntity</class>
+        <class>com.example.Model.KorisnikKupuvacEntity</class>
+        <class>com.example.Model.AdminEntity</class>
+        <class>com.example.Model.DirektorEntity</class>
+        <class>com.example.Model.OcenaNaHotelEntity</class>
+        <class>com.example.Model.OdgovorZaPomoshEntity</class>
+        <class>com.example.Model.RecepcionerEntity</class>
+        <class>com.example.Model.TehnickapodrshkaEntity</class>
+        <class>com.example.Model.ValidatorEntity</class>
+        <class>com.example.Model.ValidirajEntity</class>
+        <class>com.example.Model.RezervacijaEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/example"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value=""/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
