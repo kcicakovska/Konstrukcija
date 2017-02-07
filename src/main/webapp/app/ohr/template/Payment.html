@@ -14,43 +14,43 @@
                   <form action=thanks-page.html id='htlfndr-payment-form' method='post'>
                      <section class=htlfndr-form-section>
                         <header>
-                           <h2 class=htlfndr-form-section-title>Your Card <span>information</span></h2>
-                           <h5 class=htlfndr-form-section-description>Please enter the details of your payment card</h5>
+                           <h2 class=htlfndr-form-section-title>Информаии за вашата картичка</h2>
+                           <h5 class=htlfndr-form-section-description>Ве молиме да ги внесете деталите од вашата платежна картичка</h5>
                         </header>
                         <hr />
                         <div class=htlfndr-form-block>
                            <div class=htlfndr-form-block-inner>
-                              <label class=htlfndr-top-label>Credit Card Type</label>
+                              <label class=htlfndr-top-label>Тип на кредитна карта</label>
                               <div id='htlfndr-radio-card'><label for=htlfndr-visa></label><input type=radio name=htlfndr-card id='htlfndr-visa' value=visa /><label for=htlfndr-paypal></label><input type=radio name=htlfndr-card id='htlfndr-paypal' value=paypal /><label for=htlfndr-mastercard></label><input type=radio name=htlfndr-card id='htlfndr-mastercard' value=mastercard /><label for=htlfndr-amex></label><input type=radio name=htlfndr-card id='htlfndr-amex' value=american-express /></div>
                               <div class=row>
-                                 <div class=col-md-6><label for=htlfndr-card-number class="htlfndr-required htlfndr-top-label">Card number</label><input type=text id='htlfndr-card-number' name=htlfndr-card-number class=htlfndr-input placeholder="Enter your card number" /></div>
-                                 <div class=col-md-6><label for=htlfndr-card-holder class="htlfndr-required htlfndr-top-label">Card holder name</label><input type=text id='htlfndr-card-holder' name=htlfndr-card-holder class=htlfndr-input placeholder="Enter your card holder name" /></div>
+                                 <div class=col-md-6><label for=htlfndr-card-number class="htlfndr-required htlfndr-top-label">Број на картичка</label><input type=text id='htlfndr-card-number' name=htlfndr-card-number class=htlfndr-input placeholder="Внесете го бројот на вашата картичка" /></div>
+                                 <div class=col-md-6><label for=htlfndr-card-holder class="htlfndr-required htlfndr-top-label">Име на сопственик на картичка</label><input type=text id='htlfndr-card-holder' name=htlfndr-card-holder class=htlfndr-input placeholder="Внесете име на сопственик на картичка" /></div>
                               </div>
                               <div class=row>
                                  <div class=col-md-6>
-                                    <label class="htlfndr-top-label htlfndr-required">Expiration date</label>
+                                    <label class="htlfndr-top-label htlfndr-required">Дартум на истекување</label>
                                     <div class="htlfndr-small-select htlfndr-input-wrapper">
-                                       <label for=htlfndr-card-month class=sr-only>card expiration month</label>
+                                       <label for=htlfndr-card-month class=sr-only>Месец на важење на картичката</label>
                                        <select name=htlfndr-card-month id='htlfndr-card-month' class=htlfndr-dropdown>
-                                          <option value disabled=disabled selected=selected>Month</option>
-                                          <option value=01>January</option>
-                                          <option value=02>February</option>
-                                          <option value=03>March</option>
-                                          <option value=04>April</option>
-                                          <option value=05>May</option>
-                                          <option value=06>June</option>
-                                          <option value=07>July</option>
-                                          <option value=08>August</option>
-                                          <option value=09>September</option>
-                                          <option value=10>October</option>
-                                          <option value=11>November</option>
-                                          <option value=12>December</option>
+                                          <option value disabled=disabled selected=selected>Месец</option>
+                                          <option value=01>Јануари</option>
+                                          <option value=02>Февруари</option>
+                                          <option value=03>Март</option>
+                                          <option value=04>Април</option>
+                                          <option value=05>Мај</option>
+                                          <option value=06>Јуни</option>
+                                          <option value=07>Јули</option>
+                                          <option value=08>Август</option>
+                                          <option value=09>Септември</option>
+                                          <option value=10>Октомври</option>
+                                          <option value=11>Ноември</option>
+                                          <option value=12>Декември</option>
                                        </select>
                                     </div>
                                     <div class="htlfndr-small-select htlfndr-input-wrapper">
-                                       <label for=htlfndr-card-year class=sr-only>card expiration year</label>
+                                       <label for=htlfndr-card-year class=sr-only>Година на важење на картичката</label>
                                        <select name=htlfndr-card-year id='htlfndr-card-year' class=htlfndr-dropdown>
-                                          <option value disabled=disabled selected=selected>Year</option>
+                                          <option value disabled=disabled selected=selected>Година</option>
                                           <option value=1999>1999</option>
                                           <option value=1998>1998</option>
                                           <option value=1997>1997</option>
@@ -154,63 +154,59 @@
                                        </select>
                                     </div>
                                  </div>
-                                 <div class="col-xs-12 col-sm-12 col-md-3"><label for=htlfndr-card-code class="htlfndr-required htlfndr-top-label">Security code</label><input type=text id='htlfndr-card-code' name=htlfndr-card-code class=htlfndr-input placeholder=xxx maxlength=3 /></div>
+                                 <div class="col-xs-12 col-sm-12 col-md-3"><label for=htlfndr-card-code class="htlfndr-required htlfndr-top-label">Безбедносен код</label><input type=text id='htlfndr-card-code' name=htlfndr-card-code class=htlfndr-input placeholder=xxx maxlength=3 /></div>
                               </div>
                            </div>
                         </div>
                      </section>
                      <section class="htlfndr-form-section htlfndr-form-review-section">
-                        <header>
-                           <h2 class=htlfndr-form-section-title>Review and <span>book your Trip</span></h2>
-                        </header>
-                        <hr />
-                        <h3 class=htlfndr-attention>Attention! Please read important booking information!</h3>
-                        <ul class=htlfndr-list>
-                           <li>This special discounted rate is non-refundable. If you choose to change or cancel this booking you will not be refunded any of the payment.</li>
-                        </ul>
-                        <p class=htlfndr-long-checkbox><input type=checkbox name=htlfndr-accept id='htlfndr-accept' checked=checked /><label for=htlfndr-accept id='htlfndr-accept-label'>By selecting to complete this booking I acknowledge that I have read and accept the<a href=# class=htlfndr-rules>Rules & Restrictions</a></label></p>
-                        <div class=htlfndr-warning-message>
-                           <i class="fa fa-exclamation-triangle"></i>
-                           <p>some fields are filled incorrectly!</p>
-                        </div>
-                        <input type=submit class=htlfndr-payment-submit value="complete booking">
+
+                        <input type=submit class=htlfndr-payment-submit value="Плати">
                      </section>
                   </form>
                </main>
                <aside id=htlfndr-right-sidebar class="col-sm-12 col-md-4 col-lg-offset-1 col-lg-3 htlfndr-sidebar htlfndr-sidebar-in-right" role=complementary>
                   <div class=htlfndr-booking-details>
                      <div class=widget>
-                        <div class="htlfndr-widget-main-content htlfndr-widget-padding">
-                           <h3 class=widget-title>booking details</h3>
+                        <br class="htlfndr-widget-main-content htlfndr-widget-padding">
+                           <h3 class=widget-title>Детали за резервација</h3>
                            <div class="htlfndr-widget-block htlfndr-table-view">
                               <div class=htlfndr-hotel-thumbnail><a href=hotel-page-v1.html><img src=images/16415688600_a030e3e8dd_k.jpg alt="Hotel picture" /></a></div>
                               <div class=htlfndr-hotel-info>
                                  <a href=hotel-page-v1.html>
-                                    <h3>Hilton Hotel</h3>
+                                    <h3>Спорт хотел</h3>
                                  </a>
                                  <div class=htlfndr-rating-stars><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i></div>
-                                 <p class=htlfndr-location>san francisco, usa</p>
+                                 <p class=htlfndr-location>Маврово, Македонија</p>
                               </div>
                            </div>
                            <div class="htlfndr-widget-block htlfndr-bigger-font">
-                              <p class=htlfndr-details><span>1 room:</span> <a href=hotel-room-page.html><span>King Guest Room</span></a></p>
-                              <p class=htlfndr-details><span>check-in:</span> <span>Mon, Apr 15</span></p>
-                              <p class=htlfndr-details><span>check-out:</span> <span>Mon, Apr 17</span></p>
-                              <p class=htlfndr-details><span>persons:</span> <span>2</span></p>
+                              <p class=htlfndr-details><span>Соба</span> <a href=hotel-room-page.html><span>King Guest Room</span></a></p>
+                              <p class=htlfndr-details><span>Датум од</span> <span>Mon, Apr 15</span></p>
+                              <p class=htlfndr-details><span>Датум до</span> <span>Mon, Apr 17</span></p>
+
                            </div>
                            <div class="htlfndr-widget-block htlfndr-bigger-font">
-                              <p class=htlfndr-room-cost><span>1 night price</span> <span>$100</span></p>
-                              <p class=htlfndr-room-cost><span>taxes & fees</span> <span>$30</span></p>
+                              <p class=htlfndr-room-cost><span>Цена по ноќевње</span> <span>3000 МКД</span></p>
+                              <p class=htlfndr-room-cost><span>Такса</span> <span>30 МКД</span></p>
                            </div>
-                           <p class=htlfndr-total-price>total price:</p>
-                           <div class=htlfndr-hotel-price><span class=htlfndr-cost>$ 130</span></div>
-                        </div>
+
+                           <p class=htlfndr-total-price>Вкупна цена:</p>
+                        </br></br></br>
+
+                              <div class=htlfndr-hotel-price><span class=htlfndr-cost>12 000 МКД</span></div>
+
+
+                           </div>
+
+
+
                      </div>
-                  </div>
+
                   <div class="widget htlfndr-widget-help">
                      <div class="htlfndr-widget-main-content htlfndr-widget-padding">
-                        <h3 class=widget-title>need our help</h3>
-                        <span>24/7 dedicated customer support</span>
+                        <h3 class=widget-title>Помош</h3>
+                        <span>24/7 подршка за корисници</span>
                         <p class=htlfndr-phone>+(000) 000-000-000</p>
                         <p class=htlfndr-mail>contact@finder.com</p>
                      </div>
