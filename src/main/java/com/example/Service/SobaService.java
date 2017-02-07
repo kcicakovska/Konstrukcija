@@ -15,4 +15,7 @@ public class SobaService {
     public Iterable<Soba> findSobi(String ime){
         return sobaRepository.findByHotelByHotel_Ime(ime);
     }
+    public Iterable<Soba> findAll(){
+        return sobaRepository.findAll();
+    }
 }

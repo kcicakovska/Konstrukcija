@@ -25,8 +25,9 @@
 <body ng-controller="userController as userCtrl">
 <div class="htlfndr-loader-overlay">
 </div>
+<div ng-controller="rezervacijaController as rezervacijaCtrl">
 <div class="htlfndr-wrapper" ng-controller="HotelController as hotelCtrl">
-    <header ng-controller="rezervacijaController as rezervacijaCtrl">
+    <header >
         <div class="htlfndr-top-header">
             <div class="navbar navbar-default htlfndr-blue-hover-nav">
                 <div class="container">
@@ -206,7 +207,7 @@
             <aside class="htlfndr-form-in-slider htlfndr-search-form-inline">
                 <div class=container>
                     <h5>Каде сакате да одите? </h5>
-                    <form action=search-result.html name=search-hotel id="search-hotel" class="htlfndr-search-form">
+                    <div name=search-hotel id="search-hotel" class="htlfndr-search-form">
                         <div id="htlfndr-input-1" class="htlfndr-input-wrapper">
                             <input type=text name=htlfndr-city id="htlfndr-city" class="search-hotel-input" placeholder="Enter city, region or district" />
                             <p class="htlfndr-search-checkbox">
@@ -216,12 +217,12 @@
                         </div>
                         <div id="htlfndr-input-date-in" class="htlfndr-input-wrapper">
                             <label for=htlfndr-date-in class=sr-only>Дата на сместување</label>
-                            <input type=text name=htlfndr-date-in id="htlfndr-date-in" class="search-hotel-input" />
+                            <input type=text name=htlfndr-date-in id="htlfndr-date-in" ng-model="rezervacijaCtrl.rezervacija.datumOd" class="search-hotel-input" />
                             <button type=button class=htlfndr-clear-datepicker></button>
                         </div>
                         <div id="htlfndr-input-date-out" class="htlfndr-input-wrapper">
                             <label for=htlfndr-date-out class="sr-only">Дата на напуштање</label>
-                            <input type="text" name=htlfndr-date-out id="htlfndr-date-out" class="search-hotel-input" />
+                            <input type="text" name=htlfndr-date-out id="htlfndr-date-out" class="search-hotel-input" ng-model="rezervacijaCtrl.rezervacija.datumDo" />
                             <button type=button class=htlfndr-clear-datepicker></button>
                         </div>
                         <div id="htlfndr-input-4" class="htlfndr-input-wrapper">
@@ -236,9 +237,9 @@
                             </select>
                         </div>
                         <div id="htlfndr-input-5">
-                            <input type=submit value=search />
+                            <a type=submit href="#/searchresult"  ng-click="rezervacijaCtrl.findReservation()">Пребарај</a>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </aside>
         </section>
@@ -318,6 +319,7 @@
             </div>
         </div>
     </footer>
+</div>
 </div>
 <div id="htlfndr-sing-up">
     <div class=htlfndr-content-card>

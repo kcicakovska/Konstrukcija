@@ -1,5 +1,5 @@
-
-            <div class=htlfndr-steps>
+<h1>Големина :{{rezervacijaCtrl.hotelsFree.length}}   </h1>
+         <div class=htlfndr-steps>
                <ul class=htlfndr-progress>
                   <li class=htlfndr-active-step><span class=htlfndr-step-number>1</span> <span class=htlfndr-step-description>results</span></li>
                   <li><span class=htlfndr-step-number>2</span> <span class=htlfndr-step-description>hotel</span></li>
@@ -17,11 +17,11 @@
                            <div id=htlfndr-input-1 class=htlfndr-input-wrapper><input type=text name=htlfndr-city id=htlfndr-city class=search-hotel-input placeholder="Enter city, region" /></div>
                            <div class="htlfndr-float-input first-float">
                               <label for=htlfndr-date-in class=htlfndr-input-label>Check in</label>
-                              <div id=htlfndr-input-date-in class=htlfndr-input-wrapper><input type=text name=htlfndr-date-in id=htlfndr-date-in class="search-hotel-input"/><button type=button class=htlfndr-clear-datepicker></button></div>
+                              <div id=htlfndr-input-date-in class=htlfndr-input-wrapper><input type=text ng-model="rezervacijaCtrl.rezervacija.datumOd" name=htlfndr-date-in id=htlfndr-date-in class="search-hotel-input"/><button type=button class=htlfndr-clear-datepicker></button></div>
                            </div>
                            <div class=htlfndr-float-input>
                               <label for=htlfndr-date-out class=htlfndr-input-label>Check out</label>
-                              <div id=htlfndr-input-date-out class=htlfndr-input-wrapper><input type=text name=htlfndr-date-out id=htlfndr-date-out class="search-hotel-input"/><button type=button class=htlfndr-clear-datepicker></button></div>
+                              <div id=htlfndr-input-date-out class=htlfndr-input-wrapper><input type=text name=htlfndr-date-out ng-model="rezervacijaCtrl.rezervacija.datumDo" id=htlfndr-date-out class="search-hotel-input"/><button type=button class=htlfndr-clear-datepicker></button></div>
                            </div>
                            <section class=htlfndr-select-block>
                               <div class="htlfndr-input-wrapper htlfndr-small-select">
@@ -52,7 +52,7 @@
                                  </select>
                               </div>
                            </section>
-                           <input type=submit value=search class="btn-primary"/>
+                           <a type=submit href="#/searchresult" class="btn-primary" ng-click="rezervacijaCtrl.findReservation()">Пребарај</a>
                         </form>
                      </div>
                   </div>
@@ -108,165 +108,21 @@
                      </div>
                   </div>
                   <section class="row htlfndr-search-result-content">
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
+                     <div class="col-md-4 htlfndr-hotel-post-wrapper" ng-repeat="hotel in rezervacijaCtrl.hotelsFree">
                         <div class=htlfndr-hotel-post>
                            <a href=hotel-page-v1.html class=htlfndr-hotel-thumbnail><img src=images/top-destination-1.jpg alt=pic /></a>
                            <div class=htlfndr-hotel-description>
                               <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v1.html>King Size Bedroom</a></h2>
+                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v1.html>{{hotel.ime}}</a></h2>
                                  <div class=htlfndr-rating-stars data-rating=5>
                                     <i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;
                                     <p class=htlfndr-hotel-reviews>(<span>188</span> reviews)</p>
                                  </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>san francisco united states</a></h5>
+                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>{{hotel.adresa}}</a></h5>
                                  <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
                               </div>
                               <a href=hotel-page-v1.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 100</span> <span class=htlfndr-per-night>per night</span><span class=cost>100</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class=htlfndr-hotel-post>
-                           <a href='chosenHotel.html' class=htlfndr-hotel-thumbnail><img src=images/5690083711_44634c54f8_b.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v3.html>Awesome Suits</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=4>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>128</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>paris france</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href='chosenHotel.html' role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 250</span> <span class=htlfndr-per-night>per night</span><span class=cost>250</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class="htlfndr-hotel-post special-offer">
-                           <a href='chosenHotel.html' class=htlfndr-hotel-thumbnail><img src=images/1158353197.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v4.html>Ruzzini Palace Hotel</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=3>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>118</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>san francisco united states</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href='chosenHotel.html' role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 280</span> <span class=htlfndr-per-night>per night</span><span class=cost>280</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class=htlfndr-hotel-post>
-                           <a href=hotel-page-v1.html class=htlfndr-hotel-thumbnail><img src=images/83890-Web1.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v1.html>Aqua Palace</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=4>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>88</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>san francisco united states</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href=hotel-page-v1.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 200</span> <span class=htlfndr-per-night>per night</span><span class=cost>200</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class=htlfndr-hotel-post>
-                           <a href=hotel-page-v3.html class=htlfndr-hotel-thumbnail><img src=images/hotel-4-notinclude.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v3.html>Foscari Palace</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=5>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>178</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>paris france</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href=hotel-page-v3.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 250</span> <span class=htlfndr-per-night>per night</span><span class=cost>250</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class=htlfndr-hotel-post>
-                           <a href=hotel-page-v1.html class=htlfndr-hotel-thumbnail><img src=images/1158353197.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v1.html>Ruzzini Palace Hotel</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=3>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>177</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>san francisco united states</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href=hotel-page-v1.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 300</span> <span class=htlfndr-per-night>per night</span><span class=cost>300</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class=htlfndr-hotel-post>
-                           <a href=hotel-page-v3.html class=htlfndr-hotel-thumbnail><img src=images/29775-vannaya-komnata-plastikom.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v3.html>Hotel Alpina</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=5>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>181</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>san francisco united states</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href=hotel-page-v3.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 200</span> <span class=htlfndr-per-night>per night</span><span class=cost>200</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class=htlfndr-hotel-post>
-                           <a href=hotel-page-v1.html class=htlfndr-hotel-thumbnail><img src=images/83890-Web1.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v1.html>Hilton Hotel</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=5>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>98</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>paris france</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href=hotel-page-v1.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 300</span> <span class=htlfndr-per-night>per night</span><span class=cost>300</span></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper">
-                        <div class="htlfndr-hotel-post special-offer">
-                           <a href=hotel-page-v2.html class=htlfndr-hotel-thumbnail><img src=images/5053563227_ee0db21ca5_b.jpg alt=pic /></a>
-                           <div class=htlfndr-hotel-description>
-                              <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v2.html>Hotel Colombina</a></h2>
-                                 <div class=htlfndr-rating-stars data-rating=3>
-                                    <i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <p class=htlfndr-hotel-reviews>(<span>198</span> reviews)</p>
-                                 </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>san francisco united states</a></h5>
-                                 <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
-                              </div>
-                              <a href=hotel-page-v2.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>$ 300</span> <span class=htlfndr-per-night>per night</span><span class=cost>300</span></div>
+                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>{{hotel.sobasById[0].cena}} МКД</span> <span class=htlfndr-per-night>од вечер </span><span class=cost>{{hotel.sobasById[0].cena}}</span></div>
                            </div>
                         </div>
                      </div>

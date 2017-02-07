@@ -14,7 +14,8 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
                 )
         },
         FindReservation:function(from,to){
-            return $http.post('http://localhost:9080/'+from+"/"+to)
+            console.log(from+" "+to);
+            return $http.get('http://localhost:9080/rezervacii/'+from+"/"+to)
                 .then(
                     function(d){
                         console.log(d);

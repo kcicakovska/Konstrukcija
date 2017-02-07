@@ -365,7 +365,7 @@ function browser_width() {
 function calendar() {
     $("#htlfndr-date-out,#htlfndr-date-in,#htlfndr-date-in-cal").datepicker({
         showAnim: "drop",
-        dateFormat: "d M yy",
+        dateFormat: "yy-mm-dd",
         showOtherMonths: true,
         selectOtherMonths: true,
         minDate: "-0D",

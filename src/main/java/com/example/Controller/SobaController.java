@@ -19,4 +19,9 @@ public class SobaController {
     public Iterable<Soba> findByHotel(@PathVariable String ime){
         return sobaService.findSobi(ime);
     }
+
+    @RequestMapping(value="/rooms/all",method = RequestMethod.GET)
+    public Iterable<Soba> findAll(){
+        return sobaService.findAll();
+    }
 }

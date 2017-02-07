@@ -1,8 +1,32 @@
 'use strict';
 
-app.controller('rezervacijaController',['$scope','$window','RezervacijaService','HotelServices', function($scope,$window,RezervacijaService,HotelServices) {
+app.controller('rezervacijaController',['$scope','$window','RezervacijaService', function($scope,$window,RezervacijaService) {
     var self = this;
-    self.rezervacii = [];
+    self.hotelsFree = [];
+    self.hotel={
+        ime:'',
+        adresa:'',
+        opis:'',
+        brojNaSobi:'',
+        //sliki:'',
+        internet:'',
+        parking:'',
+        klima:'',
+        parno:'',
+        lift:'',
+        bazen:'',
+        spaIFitnes:'',
+        sobnaUsloga:'',
+        pojadokVoSoba:'',
+        restorant:'',
+        bar:'',
+        terasa:'',
+        milenicijaDozvoluva:'',
+        direktorByIdDirektor:{},
+        sobasById:{},
+        zvezdi:'',
+    };
+    self.rezervaciiFiltered = [];
     self.rezervacija={
         datumDo:'',
         datumOd:'',
@@ -26,41 +50,19 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
 
             )
     };
-    self.fetchHotels = function(){
-      HotelServices.FetchAll()
-          .then(
-              function(d){
-                  self.hotels = d;
-              }
-          )
-    };
     self.findReservation = function(){
-        console.log(self.hotels[0].sobasById.length);
-        var map=[];
-        var flag = true;
-        for(var i = 0; i < self.rezervacii.length; i++){
-            console.log("AAAAAAAAA");
-            for(var j = 0; j < self.hotels.length; j++){
-                console.log("da");
-                for(var t= 0; t < self.hotels[j].sobasById.length; t++){
-                    console.log(self.hotels[j].sobasById[t].id+" "+self.rezervacii[i].sobaByIdSoba[0].id);
-                    if(self.hotels[j].sobasById[0].id != self.rezervacii[i].sobaByIdSoba.id){
-                        console.log(self.hotels[j].ime);
-                        map.push(self.hotels[j].ime);
-                        flag = false;
-                        break;
-                    }
-                    console.log("Yes");
+        console.log(self.rezervacija.datumOd+" "+self.rezervacija.datumDo);
+        RezervacijaService.FindReservation(self.rezervacija.datumOd,self.rezervacija.datumDo)
+            .then(
+                function(d){
+                    self.hotelsFree = d;
+                },
+                function(errResponse){
+                    console.log('Error while fetching filtered reservaction in RezervacijaController');
                 }
-                if(!flag){
-                    flag = true;
-                    break;
-                }
-            }
-        }
+            )
     };
 
     self.FetchAll();
-    self.fetchHotels();
 
 }]);
