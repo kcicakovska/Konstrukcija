@@ -10,22 +10,22 @@
             <div class=row>
                <aside class="col-sm-4 col-md-3 col-lg-3 htlfndr-sidebar htlfndr-sidebar-in-left" role=complementary>
                   <div class="htlfndr-modify-search-aside widget">
-                     <h3 class=widget-title>modify search</h3>
+                     <h3 class=widget-title>Промени го пребарувањето</h3>
                      <div class=htlfndr-widget-content>
                         <form name=search-hotel id=search-hotel>
-                           <label for=htlfndr-city class=htlfndr-input-label>Your destination</label>
+                           <label for=htlfndr-city class=htlfndr-input-label>Дестинација</label>
                            <div id=htlfndr-input-1 class=htlfndr-input-wrapper><input type=text name=htlfndr-city id=htlfndr-city class=search-hotel-input placeholder="Enter city, region" /></div>
                            <div class="htlfndr-float-input first-float">
-                              <label for=htlfndr-date-in class=htlfndr-input-label>Check in</label>
+                              <label for=htlfndr-date-in class=htlfndr-input-label>Датум од</label>
                               <div id=htlfndr-input-date-in class=htlfndr-input-wrapper><input type=text ng-model="rezervacijaCtrl.rezervacija.datumOd" name=htlfndr-date-in id=htlfndr-date-in class="search-hotel-input"/><button type=button class=htlfndr-clear-datepicker></button></div>
                            </div>
                            <div class=htlfndr-float-input>
-                              <label for=htlfndr-date-out class=htlfndr-input-label>Check out</label>
+                              <label for=htlfndr-date-out class=htlfndr-input-label>Датум до</label>
                               <div id=htlfndr-input-date-out class=htlfndr-input-wrapper><input type=text name=htlfndr-date-out ng-model="rezervacijaCtrl.rezervacija.datumDo" id=htlfndr-date-out class="search-hotel-input"/><button type=button class=htlfndr-clear-datepicker></button></div>
                            </div>
                            <section class=htlfndr-select-block>
                               <div class="htlfndr-input-wrapper htlfndr-small-select">
-                                 <label for=htlfndr-room class=htlfndr-input-label>Room</label>
+                                 <label for=htlfndr-room class=htlfndr-input-label>Соба</label>
                                  <select name=htlfndr-room id=htlfndr-room class=htlfndr-dropdown>
                                     <option value=1>1</option>
                                     <option value=2>2</option>
@@ -57,16 +57,16 @@
                      </div>
                   </div>
                   <div class="htlfndr-search-details widget">
-                     <h3 class=widget-title>details</h3>
+                     <h3 class=widget-title>Детали</h3>
                      <div class=htlfndr-widget-content>
                         <form name=search-hotel-details id=search-hotel-details>
-                           <label for=htlfndr-price-show class=htlfndr-input-label>Price</label>
+                           <label for=htlfndr-price-show class=htlfndr-input-label>Цена</label>
                            <div id=htlfndr-price-slider></div>
                            <input type=text id=htlfndr-price-show readonly /><input type=hidden name=htlfndr-price-start id=htlfndr-price-start value="100"/><input type=hidden name=htlfndr-price-stop id=htlfndr-price-stop value="1000"/>
-                           <p class=htlfndr-input-label>korisnik rating</p>
+                           <p class=htlfndr-input-label>Рејтинг од корисник</p>
                            <div class=htlfndr-korisnik-rating data-rating=3></div>
                            <input type=hidden name=htlfndr-rating id=htlfndr-rating value="3"/>
-                           <p class=htlfndr-input-label>accomodation type</p>
+                           <p class=htlfndr-input-label>Тип на сместување</p>
                            <p class=htlfndr-checkbox-line><input type=checkbox id=htlfndr-check-apartment name=htlfndr-check-apartment /><label for=htlfndr-check-apartment>apartment <span>(5)</span></label></p>
                            <p class=htlfndr-checkbox-line><input type=checkbox id=htlfndr-check-hostel name=htlfndr-check-hostel /><label for=htlfndr-check-hostel>hostel <span>(5)</span></label></p>
                            <p class=htlfndr-checkbox-line><input type=checkbox id=htlfndr-check-hotel name=htlfndr-check-hotel disabled=disabled checked=checked /><label for=htlfndr-check-hotel>hotel <span>(15)</span></label></p>
