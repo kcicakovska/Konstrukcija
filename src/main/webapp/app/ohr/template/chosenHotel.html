@@ -1,20 +1,20 @@
 <div class=container>
    <div class=htlfndr-steps>
       <ul class=htlfndr-progress>
-         <li><a href=search-result.html><span class=htlfndr-step-number>1</span> <span class=htlfndr-step-description>results</span></a></li>
-         <li class=htlfndr-active-step><span class=htlfndr-step-number>2</span> <span class=htlfndr-step-description>hotel</span></li>
-         <li><span class=htlfndr-step-number>3</span> <span class=htlfndr-step-description>room</span></li>
-         <li><span class=htlfndr-step-number>4</span> <span class=htlfndr-step-description>payment</span></li>
+         <li style="width:25%"><a href="#/searchresult"><span class=htlfndr-step-number>1</span> <span class=htlfndr-step-description>results</span></a></li>
+         <li style="width:25%" class=htlfndr-active-step><span class=htlfndr-step-number>2</span> <span class=htlfndr-step-description>hotel</span></li>
+         <li style="width:25%" ><span class=htlfndr-step-number>3</span> <span class=htlfndr-step-description>room</span></li>
+         <li style="width:25%" ><span class=htlfndr-step-number>4</span> <span class=htlfndr-step-description>payment</span></li>
       </ul>
    </div>
    <div class="row htlfndr-page-content">
       <main id=htlfndr-main-content class="col-sm-12 col-md-8 col-lg-9 post htlfndr-hotel-single-content" role=main>
          <header class=htlfndr-entry-header>
-            <h1 class=htlfndr-entry-title>Hilton Hotel</h1>
+            <h1 class=htlfndr-entry-title>{{hotelCtrl.hotel.ime}}</h1>
             <div class=htlfndr-rating-stars><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i></div>
             <div class="htlfndr-hotel-contacts row">
                <div class="col-sm-6 col-md-6 col-lg-4">
-                  <p class=htlfndr-location><a href=#>San Francisco United States</a></p>
+                  <p class=htlfndr-location><a href=#>{{hotelCtrl.hotel.adresa}}</a></p>
                </div>
                <div class="col-sm-6 col-md-6 col-lg-4">
                   <p class=htlfndr-mail><a href=mailto:kingroombok@mail.com>kingroombok@mail.com</a></p>
@@ -25,14 +25,11 @@
                <div class="col-sm-6 col-md-6 col-lg-4">
                   <p class=htlfndr-phone><a href=#>000-000-000-000</a></p>
                </div>
-               <div class="col-sm-6 col-md-6 col-lg-4">
-                  <p class=htlfndr-reviews>123 (Reviews)</p>
-               </div>
             </div>
          </header>
          <div class=clearfix></div>
          <section id=htlfndr-gallery-and-map-tabs>
-                     <div id=htlfndr-gallery-tab-1 class=htlfndr-hotel-gallery>
+            <div id=htlfndr-gallery-tab-1 class=htlfndr-hotel-gallery>
                <div id=htlfndr-gallery-synced-1 class=htlfndr-gallery-carousel>
                   <div class=htlfndr-gallery-item><img src=images/16660516681_8e0fcb131f_k.jpg alt="hotel img"/></div>
 
@@ -49,23 +46,19 @@
                      <table>
                         <tr>
                            <th scope=row>Име:</th>
-                           <td>хотел име</td>
+                           <td>{{hotelCtrl.hotel.ime}}</td>
                         </tr>
                         <tr>
                            <th scope=row>Број на соби:</th>
-                           <td>4 ѕвезди</td>
-                        </tr>
-                        <tr>
-                           <th scope=row>Дражава:</th>
-                           <td>Македонија</td>
+                           <td>{{hotelCtrl.hotel.sobasById.length}}</td>
                         </tr>
                         <tr>
                            <th scope=row>Адреса:</th>
-                           <td>Маврово</td>
+                           <td>{{hotelCtrl.hotel.adresa}}</td>
                         </tr>
                         <tr>
                            <th scope=row>Ѕвезди:</th>
-                           <td>4</td>
+                           <td>{{hotelCtrl.hotel.zvezdi}}</td>
                         </tr>
 
                      </table>
@@ -76,27 +69,20 @@
             <div id=htlfndr-hotel-description-tab-2 class=htlfndr-hotel-description-tab>
                <aside class="htlfndr-sidebar-in-top htlfndr-short-form">
                   <form name=search-hotel id=search-hotel class=htlfndr-search-form>
-                     <div id=htlfndr-input-date-in class=htlfndr-input-wrapper><label for=htlfndr-date-in class=sr-only>Date in</label><input type=text name=htlfndr-date-in id=htlfndr-date-in class=search-hotel-input /><button type=button class=htlfndr-clear-datepicker></button></div>
-                     <div id=htlfndr-input-date-out class=htlfndr-input-wrapper><label for=htlfndr-date-out class=sr-only>Date out</label><input type=text name=htlfndr-date-out id=htlfndr-date-out class=search-hotel-input /><button type=button class=htlfndr-clear-datepicker></button></div>
+                     <div id=htlfndr-input-date-in class=htlfndr-input-wrapper><label for=htlfndr-date-in class=sr-only>Date in</label><input type=text ng-model="rezervacijaCtrl.rezervacija.datumOd" name=htlfndr-date-in id=htlfndr-date-in class="search-hotel-input hasDatepicker ng-pristine ng-valid" /><button type=button class=htlfndr-clear-datepicker></button></div>
+                     <div id=htlfndr-input-date-out class=htlfndr-input-wrapper><label for=htlfndr-date-out class=sr-only>Date out</label><input type=text ng-model="rezervacijaCtrl.rezervacija.datumDo" name=htlfndr-date-out id=htlfndr-date-out class="search-hotel-input hasDatepicker ng-pristine ng-valid" /><button type=button class=htlfndr-clear-datepicker></button></div>
                      <div id=htlfndr-input-4 class=htlfndr-input-wrapper>
                         <label for=htlfndr-dropdown class=sr-only>Тип на соба</label>
-                        <select name=htlfndr-dropdown id=htlfndr-dropdown class=htlfndr-dropdown>
-                           <option value="Deluxe Double Room">Deluxe Double Room</option>
-                           <option value="Superior Double Room">Superior Double Room</option>
-                           <option value="Twin Room">Twin Room</option>
-                           <option value="Junior Suite">Junior Suite</option>
-                           <option value="Double Room">Double Room</option>
-                           <option value="Apartment">Apartment</option>
+                        {{}}
+                        <select name=htlfndr-dropdown ng-model="hotelCtrl.pomosh" id=htlfndr-dropdown class=htlfndr-dropdown>
+                           <option ng-repeat="t in hotelCtrl.hotel.sobasById" value="{{t.tipNaSoba}}">{{t.tipNaSoba}}</option>
                         </select>
                      </div>
                      <div id=htlfndr-input-4 class=htlfndr-input-wrapper>
                         <label for=htlfndr-dropdown class=sr-only>Број на соба</label>
+                        <p>{{hotelCtrl.pomosh}}</p>
                         <select name=htlfndr-dropdown id=htlfndr-dropdown class=htlfndr-dropdown>
-                           <option value="соба број 1">соба број 1</option>
-                           <option value="соба број 2">соба број 2</option>
-                           <option value="соба број 3">соба број 3</option>
-                           <option value="соба број 4">соба број 4</option>
-                           <option value="соба број 5">соба број 5</option>
+                           <option ng-repeat="t in hotelCtrl.hotel.sobasById" ng-if="t.tipNaSoba===hotelCtrl.pomosh" value="соба број '{{t.brSoba}}'">соба број {{t.brSoba}}</option>
                         </select>
                      </div>
 

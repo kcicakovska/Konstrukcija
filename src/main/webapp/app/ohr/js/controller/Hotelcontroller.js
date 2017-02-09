@@ -6,6 +6,7 @@
 app.controller('HotelController',['$scope', 'HotelServices' , function($scope, HotelServices) {
     var self = this;
     self.hotels = [];
+    self.pomosh='';
     self.hotel={
         ime:'',
         adresa:'',
@@ -40,6 +41,9 @@ app.controller('HotelController',['$scope', 'HotelServices' , function($scope, H
                     console.log('Error while fetching ticket in TicketController');
                 }
             );
+    };
+    self.setHotel = function(hotel){
+        self.hotel = hotel;
     };
     self.FetchAll();
 }]);

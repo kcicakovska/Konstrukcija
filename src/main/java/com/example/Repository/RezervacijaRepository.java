@@ -11,6 +11,6 @@ public interface RezervacijaRepository extends CrudRepository<Rezervacija,Intege
     @Override
     Rezervacija save(Rezervacija tmp);
     Iterable<Rezervacija> findAll();
-    Iterable<Rezervacija>findByDatumDoBetween(Date datumOd, Date datumDo);
+    Iterable<Rezervacija>findByDatumOdBetween(Date datumOd, Date datumDo);
 }
 

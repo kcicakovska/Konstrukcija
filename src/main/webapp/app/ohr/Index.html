@@ -105,22 +105,22 @@
                     <div class="collapse navbar-collapse" id="htlfndr-main-nav">
                         <ul class="nav navbar-nav">
                             <li class="active">
-                                <a href="#/korisnik" ng-show="userCtrl.korisnik.type=='korisnik'">Дома</a>
-                                <a href="#/direktor" ng-show="userCtrl.korisnik.type=='direktor'">Дома</a>
-                                <a href="#/admin" ng-show="userCtrl.korisnik.type=='admin'">Дома</a>
-                                <a href="#/validator" ng-show="userCtrl.korisnik.type=='validator'">Дома</a>
-                                <a href="#/tehnickapodrska" ng-show="userCtrl.korisnik.type=='tehnickapodrshka'">Дома</a>
+                                <a href="#/korisnik" ng-show="userCtrl.korisnik.tip=='korisnik'">Дома</a>
+                                <a href="#/direktor" ng-show="userCtrl.korisnik.tip=='direktor'">Дома</a>
+                                <a href="#/admin" ng-show="userCtrl.korisnik.tip=='admin'">Дома</a>
+                                <a href="#/validator" ng-show="userCtrl.korisnik.tip=='validator'">Дома</a>
+                                <a href="#/tehnickapodrska" ng-show="userCtrl.korisnik.tip=='tehnickapodrshka'">Дома</a>
                             </li>
                             <li>
-                                <a href="#/direktor" ng-show="userCtrl.korisnik.type=='direktor'">Промени Хотел</a>
-                                <a href="#/searchHotel" ng-show="userCtrl.korisnik.type=='korisnik'">Пребарај хотели</a>
-                                <a href="#/admin" ng-show="userCtrl.korisnik.type=='admin'">Види предходни извештаи</a>
-                                <a href="#/tehnickapodrshka" ng-show="userCtrl.korisnik.type=='tehnickapodrshka'">Види предходни проблеми</a>
+                                <a href="#/direktor" ng-show="userCtrl.korisnik.tip=='direktor'">Промени Хотел</a>
+                                <a href="#/searchHotel" ng-show="userCtrl.korisnik.tip=='korisnik'">Пребарај хотели</a>
+                                <a href="#/admin" ng-show="userCtrl.korisnik.tip=='admin'">Види предходни извештаи</a>
+                                <a href="#/tehnickapodrshka" ng-show="userCtrl.korisnik.tip=='tehnickapodrshka'">Види предходни проблеми</a>
                             </li>
                             <li>
-                            <a href=blog-index.html ng-show="userCtrl.korisnik.type=='korisnik'">Преглед на резервации</a>
-                            <a href=blog-index.html ng-show="userCtrl.korisnik.type=='direktor'">Преглед на соби</a>
-                            <a href="#/admin" ng-show="userCtrl.korisnik.type=='admin'">Извештаи по хотели</a>
+                            <a href=blog-index.html ng-show="userCtrl.korisnik.tip=='korisnik'">Преглед на резервации</a>
+                            <a href=blog-index.html ng-show="userCtrl.korisnik.tip=='direktor'">Преглед на соби</a>
+                            <a href="#/admin" ng-show="userCtrl.korisnik.tip=='admin'">Извештаи по хотели</a>
                             </li>
                             <li><a href=korisnik-page.html>Профил</a></li>
                             <li class=dropdown>
@@ -167,8 +167,8 @@
                 </div>
             </nav>
         </div>
-        
-      <section class=htlfndr-slider-section ng-show="(userCtrl.checkLogged!=false && userCtrl.korisnik.type=='korisnik' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged==false">
+        <h1>{{(userCtrl.checkLogged!=false && userCtrl.user.tip==='kupuvac' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged===false}}</h1>
+      <section class=htlfndr-slider-section ng-show="(userCtrl.checkLogged!=false && userCtrl.user.tip=='kupuvac' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged==false">
             <div class=owl-carousel>
                 <div class=htlfndr-slide-wrapper>
                     <img src=images/slider-image-1.jpg alt=img-1 />
@@ -339,29 +339,29 @@
             <div class=row>
                 <div class=col-md-6>
                     <h4>Име</h4>
-                    <input id="htlfndr-sing-up-name" class=htlfndr-input type=text name=htlfndr-sing-up-name>
+                    <input id="htlfndr-sing-up-name" ng-model="userCtrl.user.ime" class=htlfndr-input type=text name=htlfndr-sing-up-name>
                 </div>
                 <div class=col-md-6>
                     <h4>Презиме</h4>
-                    <input id="htlfndr-sing-up-last-name" class="htlfndr-input" type=text name="htlfndr-sing-up-last-name">
+                    <input id="htlfndr-sing-up-last-name" class="htlfndr-input" ng-model="userCtrl.user.prezime" type=text name="htlfndr-sing-up-last-name">
                 </div>
             </div>
             <div class=row>
                 <div class=col-md-6>
                     <h4>Корисничко име</h4>
-                    <input id="htlfndr-sing-up-username" ng-model='userCtrl.korisnik.username'class="htlfndr-input" type=text name=htlfndr-sing-up-username>
+                    <input id="htlfndr-sing-up-username" ng-model='userCtrl.user.korisnickoIme'class="htlfndr-input" type=text name=htlfndr-sing-up-username>
                 </div>
                 <div class=col-md-6>    
                     <h4>ЕМБГ</h4>
-                    <input id="htlfndr-sing-up-embg" class="htlfndr-input" type=text name=htlfndr-sing-up-embg>
+                    <input id="htlfndr-sing-up-embg" ng-model="userCtrl.user.embg" class="htlfndr-input" type=text name=htlfndr-sing-up-embg>
                </div>
             </div>        
             <h4>E-mail адреса</h4>
-            <input id="htlfndr-sing-up-email" class="htlfndr-input" type=text name=htlfndr-sing-up-email>
+            <input id="htlfndr-sing-up-email" ng-model="userCtrl.user.email"class="htlfndr-input" type=text name=htlfndr-sing-up-email>
             <div class=row>
                 <div class=col-md-6>
                     <h4>Лозинка</h4>
-                    <input id="htlfndr-sing-up-pass" ng-model='userCtrl.korisnik.password'class=htlfndr-input type=password name=htlfndr-sing-up-pass>
+                    <input id="htlfndr-sing-up-pass" ng-model='userCtrl.user.lozinka'class=htlfndr-input type=password name=htlfndr-sing-up-pass>
                 </div>
                 <div class=col-md-6>
                     <h4>Потврди лозинка</h4>
@@ -371,11 +371,11 @@
             <div class=row>
                 <div class=col-md-6>
                     <h4>Град</h4>
-                    <input id="htlfndr-sing-up-grad" class="htlfndr-input" type=text name=htlfndr-sing-up-grad>
+                    <input id="htlfndr-sing-up-grad" ng-model="userCtrl.user.grad" class="htlfndr-input" type=text name=htlfndr-sing-up-grad>
                 </div>
                 <div class=col-md-6>
                     <h4>Држава</h4>
-                    <input id="htlfndr-sing-up-drzava" class="htlfndr-input" type=text name=htlfndr-sing-up-drzava>
+                    <input id="htlfndr-sing-up-drzava" ng-model="userCtrl.user.drzava"class="htlfndr-input" type=text name=htlfndr-sing-up-drzava>
                 </div>
             </div>    
             <div class=row>

@@ -13,7 +13,7 @@ public class SobaService {
     SobaRepository sobaRepository;
 
     public Iterable<Soba> findSobi(String ime){
-        return sobaRepository.findByHotelByHotel_Ime(ime);
+        return sobaRepository.findByHotelByHotelId_Ime(ime);
     }
     public Iterable<Soba> findAll(){
         return sobaRepository.findAll();

@@ -77,7 +77,7 @@ public class Hotel {
         return result;
     }
 
-    @OneToMany(mappedBy = "hotelByHotel",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "hotelByHotelId",fetch = FetchType.LAZY)
     public Collection<Soba> getSobasById() {
         return sobasById;
     }

@@ -3,6 +3,7 @@ package com.example.Controller;
 import com.example.Model.Hotel;
 import com.example.Model.Rezervacija;
 import com.example.Model.Soba;
+import com.example.Service.HotelService;
 import com.example.Service.RezervacijaService;
 import com.example.Service.SobaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -24,6 +26,9 @@ public class RezervacijaController {
 
     @Autowired
     SobaService sobaService;
+
+    @Autowired
+    HotelService hotelService;
 
     @RequestMapping(value="/rezerviraj",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     public Rezervacija findByHotel(@RequestBody Rezervacija tmp){
@@ -47,24 +52,44 @@ public class RezervacijaController {
         System.out.println(ab.size()+" golemina na rezervacii "+sobi.size()+" golemina na sobi");
         List<String> result = new ArrayList();
         List<Hotel> result1 = new ArrayList();
+        List<Soba> slobodniSobi = new ArrayList();
         if(ab.size()>0) {
             for (int i = 0; i < ab.size(); i++) {
                 for (int j = 0; j < sobi.size(); j++) {
-                    if (ab.get(i).getSobaByIdSoba().getId() != sobi.get(j).getId() && !result.contains(sobi.get(j).getHotelByHotel().getIme())) {
-                        result.add(sobi.get(j).getHotelByHotel().getIme());
-                        result1.add(sobi.get(j).getHotelByHotel());
+                    if (ab.get(i).getSobaByIdSoba().getId() != sobi.get(j).getId()) {
+                        if(!result.contains(sobi.get(j).getHotelByHotelId().getIme())) {
+                            result.add(sobi.get(j).getHotelByHotelId().getIme());
+                            result1.add(sobi.get(j).getHotelByHotelId());
+                        }
+                        slobodniSobi.add(sobi.get(j));
                     }
                 }
             }
         }else{
             for(int k = 0; k < sobi.size(); k++){
-                if(!result.contains(sobi.get(k).getHotelByHotel().getIme())){
-                    result.add(sobi.get(k).getHotelByHotel().getIme());
-                    result1.add(sobi.get(k).getHotelByHotel());
+                if(!result.contains(sobi.get(k).getHotelByHotelId().getIme())){
+                    result.add(sobi.get(k).getHotelByHotelId().getIme());
+                    result1.add(sobi.get(k).getHotelByHotelId());
                 }
+                slobodniSobi.add(sobi.get(k));
             }
         }
-        System.out.println(result1.size()+" GOLEMINAAAAAAAAAAAAAAAAAAAA");
+        for(int i = 0; i < result1.size(); i++){
+            result1.get(i).getSobasById().clear();
+        }
+        Collection<Soba> tmp;
+        for(int i =0 ; i < result1.size(); i++){
+            tmp = new ArrayList();
+            System.out.println("Slobodni sobi od site hoteli "+slobodniSobi.size());
+            for(int j = 0; j < slobodniSobi.size(); j++){
+                System.out.println("Ove e id od slobodniSobi "+slobodniSobi.get(j).getHotelByHotelId().getId()+" Ova e id na result1 "+result1.get(i).getId());
+                if(slobodniSobi.get(j).getHotelByHotelId().getId()==result1.get(i).getId()){
+                    tmp.add(slobodniSobi.get(j));
+                }
+            }
+            System.out.println("Ova e hotelot "+result1.get(i).getIme()+" broj na slobodni sobi "+tmp.size());
+            result1.get(i).setSobasById(tmp);
+        }
         return result1;
     }
 

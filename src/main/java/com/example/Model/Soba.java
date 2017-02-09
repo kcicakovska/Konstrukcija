@@ -11,20 +11,18 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "soba", schema = "example" )
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id",scope =Soba.class)
+
 @JsonIdentityReference(alwaysAsId=true)
 public class Soba implements Serializable{
     private int id;
-    private Hotel hotelByHotel;
     private String tipNaSoba;
-    private Integer brSoba;
-    private Byte klima;
-    private Byte parno;
-    private Byte terasa;
-    private Byte pogled;
-    private Byte internet;
-    private Byte televizor;
+    private int brSoba;
+    private boolean klima;
+    private boolean parno;
+    private boolean terasa;
+    private boolean pogled;
+    private boolean internet;
+    private boolean televizor;
     private Hotel hotelByHotelId;
     private int cena;
 
@@ -36,8 +34,7 @@ public class Soba implements Serializable{
         this.cena = cena;
     }
 
-    public Soba(Hotel hotelByHotel, String tipNaSoba, Integer brSoba, Byte klima, Byte parno, Byte terasa, Byte pogled, Byte internet, Byte televizor, Hotel hotelByHotelId, int cena) {
-        this.hotelByHotel = hotelByHotel;
+    public Soba(String tipNaSoba, int brSoba, boolean klima, boolean parno, boolean terasa, boolean pogled, boolean internet, boolean televizor, Hotel hotelByHotelId, int cena) {
         this.tipNaSoba = tipNaSoba;
         this.brSoba = brSoba;
         this.klima = klima;
@@ -77,16 +74,6 @@ public class Soba implements Serializable{
         return id;
     }
 
-    @ManyToOne(fetch =FetchType.LAZY)
-    @JoinColumn(name = "hotel_id", referencedColumnName = "ID")
-    public Hotel  getHotelByHotel() {
-        return hotelByHotel;
-    }
-
-    public void setHotelByHotel(Hotel hotelByHotel) {
-        this.hotelByHotel = hotelByHotel;
-    }
-
     @Basic
     @Column(name = "tip_na_soba")
     public String getTipNaSoba() {
@@ -109,61 +96,61 @@ public class Soba implements Serializable{
 
     @Basic
     @Column(name = "klima")
-    public Byte getKlima() {
+    public boolean getKlima() {
         return klima;
     }
 
-    public void setKlima(Byte klima) {
+    public void setKlima(boolean klima) {
         this.klima = klima;
     }
 
     @Basic
     @Column(name = "parno")
-    public Byte getParno() {
+    public boolean getParno() {
         return parno;
     }
 
-    public void setParno(Byte parno) {
+    public void setParno(boolean parno) {
         this.parno = parno;
     }
 
     @Basic
     @Column(name = "terasa")
-    public Byte getTerasa() {
+    public boolean getTerasa() {
         return terasa;
     }
 
-    public void setTerasa(Byte terasa) {
+    public void setTerasa(boolean terasa) {
         this.terasa = terasa;
     }
 
     @Basic
     @Column(name = "pogled")
-    public Byte getPogled() {
+    public boolean getPogled() {
         return pogled;
     }
 
-    public void setPogled(Byte pogled) {
+    public void setPogled(boolean pogled) {
         this.pogled = pogled;
     }
 
     @Basic
     @Column(name = "internet")
-    public Byte getInternet() {
+    public boolean getInternet() {
         return internet;
     }
 
-    public void setInternet(Byte internet) {
+    public void setInternet(boolean internet) {
         this.internet = internet;
     }
 
     @Basic
     @Column(name = "televizor")
-    public Byte getTelevizor() {
+    public boolean getTelevizor() {
         return televizor;
     }
 
-    public void setTelevizor(Byte televizor) {
+    public void setTelevizor(boolean televizor) {
         this.televizor = televizor;
     }
 
@@ -176,10 +163,11 @@ public class Soba implements Serializable{
     public void setHotelByHotelId(Hotel  hotelByHotelId) {
         this.hotelByHotelId = hotelByHotelId;
     }
-    public Soba(String id){
-        this.id = Integer.parseInt(id);
-    }
 
     public Soba() {
+    }
+
+    public void setBrSoba(int brSoba) {
+        this.brSoba = brSoba;
     }
 }

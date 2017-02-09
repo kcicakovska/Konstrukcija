@@ -7,6 +7,6 @@ package com.example.Repository;
 @Repository
 public interface SobaRepository extends CrudRepository<Soba,Integer> {
 
-    Iterable<Soba> findByHotelByHotel_Ime(String ime);
+    Iterable<Soba> findByHotelByHotelId_Ime(String ime);
     Iterable<Soba> findAll();
 }

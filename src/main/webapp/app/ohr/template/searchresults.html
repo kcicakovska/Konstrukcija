@@ -92,7 +92,7 @@
                   </div>
                </aside>
                <main class="col-sm-8 col-md-9 col-lg-9 htlfndr-search-result htlfndr-grid-view" role=main>
-                  <h2 class=htlfndr-search-result-title><span>125</span> results found</h2>
+                  <h2 class=htlfndr-search-result-title><span>{{rezervacijaCtrl.hotelsFree.length}}</span> резултати </h2>
                   <div class="htlfndr-search-result-sorting row">
                      <div class=col-md-12>
                         <div class="dropdown htlfndr-sort">
@@ -115,21 +115,22 @@
                      </div>
                   </div>
                   <section class="row htlfndr-search-result-content">
-                     <div class="col-md-4 htlfndr-hotel-post-wrapper" ng-repeat="hotel in rezervacijaCtrl.hotelsFree">
+                     <div class="col-md-4 htlfndr-hotel-post-wrapper" ng-repeat="rezervacija in rezervacijaCtrl.hotelsFree">
+
                         <div class=htlfndr-hotel-post>
                            <a href=hotel-page-v1.html class=htlfndr-hotel-thumbnail><img src=images/top-destination-1.jpg alt=pic /></a>
                            <div class=htlfndr-hotel-description>
                               <div class=htlfndr-description-content>
-                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v1.html>{{hotel.ime}}</a></h2>
+                                 <h2 class=htlfndr-entry-title><a href=hotel-page-v1.html>{{rezervacija.ime}}</a></h2>
                                  <div class=htlfndr-rating-stars data-rating=5>
                                     <i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;<i class="fa fa-star htlfndr-star-color"></i>&nbsp;
                                     <p class=htlfndr-hotel-reviews>(<span>188</span> reviews)</p>
                                  </div>
-                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>{{hotel.adresa}}</a></h5>
+                                 <h5 class=htlfndr-hotel-location><a href=#><i class="fa fa-map-marker"></i>{{rezervacija.adresa}}</a></h5>
                                  <p class=htlfndr-last-booking>Last booking: <span>14</span> hours ago</p>
                               </div>
-                              <a href=hotel-page-v1.html role=button class=htlfndr-select-hotel-button>select</a>
-                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>{{hotel.sobasById[0].cena}} МКД</span> <span class=htlfndr-per-night>од вечер </span><span class=cost>{{hotel.sobasById[0].cena}}</span></div>
+                              <a href="#/chosenHotel" ng-click="hotelCtrl.setHotel(rezervacija)" role=button class=htlfndr-select-hotel-button>Одбери</a>
+                              <div class=htlfndr-hotel-price><span class=htlfndr-from>from</span> <span class=htlfndr-cost>{{rezervacija.sobasById[0].cena}} МКД</span> <span class=htlfndr-per-night>од вечер </span><span class=cost>{{rezervacija.sobasById[0].cena}}</span></div>
                            </div>
                         </div>
                      </div>

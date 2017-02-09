@@ -19,6 +19,6 @@ public class RezervacijaService {
         return  rezervacijaRepository.findAll();
     }
     public Iterable<Rezervacija>findByDate(Date datumOd, Date datumDo){
-        return rezervacijaRepository.findByDatumDoBetween(datumOd,datumDo);
+        return rezervacijaRepository.findByDatumOdBetween(datumOd,datumDo);
     }
 }
