@@ -37,6 +37,17 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
                         console.log('Error while fetching all reservation in RezervacijaService')
                     }
                 )
+        },
+        saveReservation: function () {
+            return $http.post('http://localhost:9080/rezerviraj')
+                .then(
+                    function(d){
+                        return d.data;
+                    },
+                    function(errResponse){
+                        console.log('Error while saving the reservation in rezeracijaController');
+                    }
+                )
         }
     }
 }]);

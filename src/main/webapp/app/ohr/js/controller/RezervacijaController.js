@@ -52,7 +52,7 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
     };
     self.findReservation = function(){
         console.log(self.rezervacija.datumOd+" "+self.rezervacija.datumDo);
-        if(self.rezervacija.datumOd!="" || self.rezervacija.datumDo!="") {
+        if(self.rezervacija.datumOd!="" && self.rezervacija.datumDo!="") {
             RezervacijaService.FindReservation(self.rezervacija.datumOd, self.rezervacija.datumDo)
                 .then(
                     function (d) {
@@ -75,6 +75,25 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
                     }
                 )
         }
+    };
+
+    self.makeReservation = function(korisnik){
+        console.log(korisnik);
+        self.rezervacija.korisnikKupuvacByIdKorisnik = korisnik;
+        self.saveReservation();
+    };
+
+    self.saveReservation = function(){
+        console.log(self.rezervacija.sobaByIdSoba);
+        RezervacijaService.saveReservation()
+            .then(
+                function(d){
+                    self.rezervacija = d;
+                },
+                function(errResponse){
+                    console.log('Error while saving reservation in reservationController');
+                }
+            )
     };
 
     self.FetchAll();
