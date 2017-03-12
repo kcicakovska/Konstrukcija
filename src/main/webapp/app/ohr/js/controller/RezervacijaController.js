@@ -27,6 +27,7 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
         zvezdi:'',
     };
     self.rezervaciiFiltered = [];
+    self.pomoshHotel='';
     self.rezervacija={
         datumDo:'',
         datumOd:'',
@@ -35,7 +36,6 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
         komentar:'',
         sobaByIdSoba:{},
         korisnikKupuvacByIdKorisnik:{},
-        primer:'Ajde'
     };
     self.hotels=[];
     self.FetchAll = function () {
@@ -77,15 +77,41 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
         }
     };
 
-    self.makeReservation = function(korisnik){
-        console.log(korisnik);
-        self.rezervacija.korisnikKupuvacByIdKorisnik = korisnik;
-        self.saveReservation();
+    self.makeReservation = function(korisnik,pomosh,ime){
+        //console.log(korisnik);
+        console.log(pomosh);
+        var boolea = false;
+        self.rezervacija.korisnikKupuvacByIdKorisnik.id = korisnik.id;
+        for(var i = 0; i < self.hotels.length; i++){
+            if(self.hotels[i].ime==ime) {
+                for (var k = 0; k < self.hotels[i].sobasById.length; k++) {
+                    console.log(self.hotels[i].sobasById[k]);
+                    if (pomosh.brSoba == self.hotels[i].sobasById[k].brSoba) {
+                        console.log(self.hotels[i].sobasById[k]);
+                        self.rezervacija.sobaByIdSoba = self.hotels[i].sobasById[k];
+                        self.pomoshHotel = ime;
+                        boolea = true;
+                        break;
+                    }
+                }
+            }
+            if(boolea)
+                break;
+        }
+        var oneDay = 24*60*60*1000;
+        var firsDay = new Date(self.rezervacija.datumOd);
+        var lastDay = new Date(self.rezervacija.datumDo);
+        var diffDay = Math.round(Math.abs((firsDay.getTime()-lastDay.getTime())/oneDay));
+        self.DenoviRezervirani = diffDay;
+        console.log(diffDay);
+        console.log(self.rezervacija);
+       // self.saveReservation();
+        location.href="http://localhost:58223/ohr/src/main/webapp/app/ohr/Index.html#/payment";
     };
 
     self.saveReservation = function(){
-        console.log(self.rezervacija.sobaByIdSoba);
-        RezervacijaService.saveReservation()
+        console.log(self.rezervacija);
+        RezervacijaService.saveReservation(self.rezervacija)
             .then(
                 function(d){
                     self.rezervacija = d;
@@ -95,7 +121,18 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
                 }
             )
     };
-
+    self.fetchAllHotels = function(){
+        HotelServices.FetchAll()
+            .then(
+                function(d){
+                    console.log("Tuka sum");
+                    self.hotels = d;
+                },
+                function(errResponse){
+                    console.log('Error while fetching all hotel in RezervacijaControlller')
+                }
+            )
+    };
+    self.fetchAllHotels();
     self.FetchAll();
-
 }]);

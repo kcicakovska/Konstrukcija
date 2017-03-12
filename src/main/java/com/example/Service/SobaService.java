@@ -18,4 +18,5 @@ public class SobaService {
     public Iterable<Soba> findAll(){
         return sobaRepository.findAll();
     }
+
 }

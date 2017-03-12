@@ -11,7 +11,7 @@
             </div>
             <div class="row htlfndr-payment-page">
                <main id='htlfndr-main-content' class="col-sm-12 col-md-8 col-lg-8" role='main'>
-                  <form action=thanks-page.html id='htlfndr-payment-form' method='post'>
+                  <form id='htlfndr-payment-form' method='post'>
                      <section class=htlfndr-form-section>
                         <header>
                            <h2 class=htlfndr-form-section-title>Информаии за вашата картичка</h2>
@@ -161,7 +161,7 @@
                      </section>
                      <section class="htlfndr-form-section htlfndr-form-review-section">
 
-                        <input type=submit class=htlfndr-payment-submit value="Плати">
+                        <input type=submit class=htlfndr-payment-submit value="Плати" ng-click="rezervacijaCtrl.saveReservation()">
                      </section>
                   </form>
                </main>
@@ -174,27 +174,29 @@
                               <div class=htlfndr-hotel-thumbnail><a href=hotel-page-v1.html><img src=images/16415688600_a030e3e8dd_k.jpg alt="Hotel picture" /></a></div>
                               <div class=htlfndr-hotel-info>
                                  <a href=hotel-page-v1.html>
-                                    <h3>Спорт хотел</h3>
+                                    <h3>{{rezervacijaCtrl.pomoshHotel}}</h3>
                                  </a>
                                  <div class=htlfndr-rating-stars><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i><i class="fa fa-star htlfndr-star-color"></i></div>
-                                 <p class=htlfndr-location>Маврово, Македонија</p>
+                                 <p class=htlfndr-location>{{rezervacijaCtrl.rezervacija.sobasById.hotel.name}}</p>
                               </div>
                            </div>
+                           <p>{{rezervacijaCtrl.rezervacija}}</p>
+                           <p>{{rezervacijaCtrl.rezervacija.sobaByIdSoba.tipNaSoba}}</p>
                            <div class="htlfndr-widget-block htlfndr-bigger-font">
-                              <p class=htlfndr-details><span>Соба</span> <a href=hotel-room-page.html><span>King Guest Room</span></a></p>
-                              <p class=htlfndr-details><span>Датум од</span> <span>Mon, Apr 15</span></p>
-                              <p class=htlfndr-details><span>Датум до</span> <span>Mon, Apr 17</span></p>
+                              <p class=htlfndr-details><span>Датум од</span> <span>{{rezervacijaCtrl.rezervacija.datumOd}}</span></p>
+                              <p class=htlfndr-details><span>Датум до</span> <span>{{rezervacijaCtrl.rezervacija.datumDo}}</span></p>
 
                            </div>
                            <div class="htlfndr-widget-block htlfndr-bigger-font">
-                              <p class=htlfndr-room-cost><span>Цена по ноќевње</span> <span>3000 МКД</span></p>
-                              <p class=htlfndr-room-cost><span>Такса</span> <span>30 МКД</span></p>
+                              <p class=htlfndr-room-cost><span>Цена по ноќевње</span> <span>{{rezervacijaCtrl.rezervacija.sobaByIdSoba.cena}} МКД</span></p>
+                              <p class=htlfndr-room-cost><span>Денови</span> <span>{{rezervacijaCtrl.DenoviRezervirani}}</span></p>
+
                            </div>
 
                            <p class=htlfndr-total-price>Вкупна цена:</p>
                         </br></br></br>
 
-                              <div class=htlfndr-hotel-price><span class=htlfndr-cost>12 000 МКД</span></div>
+                              <div class=htlfndr-hotel-price><span class=htlfndr-cost>{{rezervacijaCtrl.rezervacija.sobaByIdSoba.cena * rezervacijaCtrl.DenoviRezervirani}} МКД</span></div>
 
 
                            </div>

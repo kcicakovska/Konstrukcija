@@ -4,10 +4,7 @@ package com.example.Controller;
 import com.example.Model.Soba;
 import com.example.Service.SobaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SobaController {
@@ -24,4 +21,6 @@ public class SobaController {
     public Iterable<Soba> findAll(){
         return sobaService.findAll();
     }
+
+
 }

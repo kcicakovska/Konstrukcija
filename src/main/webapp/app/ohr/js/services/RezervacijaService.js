@@ -38,8 +38,8 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
                     }
                 )
         },
-        saveReservation: function () {
-            return $http.post('http://localhost:9080/rezerviraj')
+        saveReservation: function (rezervacija) {
+            return $http.post('http://localhost:9080/rezerviraj',rezervacija)
                 .then(
                     function(d){
                         return d.data;

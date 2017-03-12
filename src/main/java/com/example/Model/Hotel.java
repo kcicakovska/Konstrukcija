@@ -10,6 +10,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "hotel", schema = "example")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        scope = Hotel.class,
         property = "id")
 public class Hotel {
     private int id;
@@ -272,5 +273,12 @@ public class Hotel {
 
     public void setZvezdi(int zvezdi) {
         this.zvezdi = zvezdi;
+    }
+
+    public Hotel(int id) {
+        this.id = id;
+    }
+
+    public Hotel() {
     }
 }

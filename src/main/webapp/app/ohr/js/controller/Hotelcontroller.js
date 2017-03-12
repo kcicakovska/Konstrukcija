@@ -6,7 +6,10 @@
 app.controller('HotelController',['$scope', 'HotelServices' , function($scope, HotelServices) {
     var self = this;
     self.hotels = [];
-    self.pomosh='';
+    self.pomosh={
+        brSoba:'',
+        tipSoba:''
+    };
     self.hotel={
         ime:'',
         adresa:'',

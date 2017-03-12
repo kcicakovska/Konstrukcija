@@ -76,20 +76,20 @@
                      <div id=htlfndr-input-date-out class=htlfndr-input-wrapper><label for=htlfndr-date-out class=sr-only>Date out</label><input type=text ng-model="rezervacijaCtrl.rezervacija.datumDo" name=htlfndr-date-out id=htlfndr-date-out class="search-hotel-input hasDatepicker ng-pristine ng-valid" /><button type=button class=htlfndr-clear-datepicker></button></div>
                      <div id="htlfndr-input-4" class=htlfndr-input-wrapper>
                         <label for=htlfndr-dropdown class=sr-only>Тип на соба</label>
-                        <select name=htlfndr-dropdown ng-model="hotelCtrl.pomosh" id=htlfndr-dropdown class=htlfndr-dropdown>
+                        <select name=htlfndr-dropdown ng-model="hotelCtrl.pomosh.tipSoba" id=htlfndr-dropdown class=htlfndr-dropdown>
                            <option ng-repeat="t in hotelCtrl.hotel.sobasById" ng-model="rezervacijaCtrl.sobasById.tipNaSoba" value="{{t.tipNaSoba}}">{{t.tipNaSoba}}</option>
                         </select>
-                        {{rezervacijaCtrl.sobasById.tipNaSoba}}
                      </div>
                      <div id="htlfndr-input-4" class=htlfndr-input-wrapper>
                         <label for=htlfndr-dropdown class=sr-only>Број на соба</label>
-                        <p>{{hotelCtrl.pomosh}}</p>
-                        <select name=htlfndr-dropdown id=htlfndr-dropdown class=htlfndr-dropdown>
-                           <option ng-repeat="t in hotelCtrl.hotel.sobasById" ng-show="t.tipNaSoba===hotelCtrl.pomosh" ng-model="rezervacijaCtrl.sobasById.brSoba" value="соба број '{{t.brSoba}}'">соба број {{t.brSoba}}</option>
+                        <p>{{hotelCtrl.pomosh.tipSoba}}</p>
+                        <select name=htlfndr-dropdown id=htlfndr-dropdown ng-model="hotelCtrl.pomosh.brSoba" class=htlfndr-dropdown>
+                           <option ng-repeat="t in hotelCtrl.hotel.sobasById" ng-show="t.tipNaSoba===hotelCtrl.pomosh.tipSoba" ng-model="rezervacijaCtrl.sobasById.brSoba" value="{{t.brSoba}}">{{t.brSoba}}</option>
                         </select>
+                        <p>Ova e : {{hotelCtrl.pomosh.brSoba}}</p>
                      </div>
-                        {{rezervacijaCtrl.sobasById.brSoba}}
-                     <div id=htlfndr-input-5 class=htlfndr-input-wrapper><input type=submit value="Резервирај" class="btn-default" ng-click="rezervacijaCtrl.makeReservation(userCtrl.user)"/></div>
+
+                     <div id=htlfndr-input-5 class=htlfndr-input-wrapper><input type=submit value="Резервирај" class="btn-default" ng-click="rezervacijaCtrl.makeReservation(userCtrl.user,hotelCtrl.pomosh,hotelCtrl.hotel.ime)"/></div>
                      <div class=clearfix></div>
                   </form>
                </aside>
