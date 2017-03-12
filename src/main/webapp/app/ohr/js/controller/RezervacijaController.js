@@ -106,7 +106,9 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
         console.log(diffDay);
         console.log(self.rezervacija);
        // self.saveReservation();
-        location.href="http://localhost:58223/ohr/src/main/webapp/app/ohr/Index.html#/payment";
+        var url = location.href;
+        url = url.substr(0,url.length-11);
+        location.href = url +"payment";
     };
 
     self.saveReservation = function(){
