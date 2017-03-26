@@ -1,0 +1,21 @@
+<main role=main>
+    <table id="username" class="table">
+        <tr>
+            <th>хотел</th>
+            <th>број на соба</th>
+            <th>тип на соба</th>
+            <th>датум од</th>
+            <th>датум до</th>
+            <th>датум на одјава</th>
+        </tr>
+        <tr ng-repeat="r  in rezervacijaCtrl.rezervacii ">
+            <td>{{r.sobaByIdSoba.hotelByHotelId.ime}}</td>
+            <td>{{r.sobaByIdSoba.brSoba}}</td>
+            <td>{{r.sobaByIdSoba.tipNaSoba}}</td>
+            <td>{{r.datumOd}}</td>
+            <td>{{r.datumDo}}</td>
+            <td>{{r.datumOdjava}}</td>
+        </tr>
+
+    </table>
+</main>

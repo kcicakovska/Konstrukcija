@@ -149,6 +149,21 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
 
         }
     };
+    self.RezervationById=function(id){
+        RezervacijaService.reservationById(id)
+            .then(
+                function (d) {
+                    self.rezervacii = d;
+                    console.log(d);
+                   // var url = location.href;
+                   // url = url.substr(0,url.length-6);
+                    location.href += "rezervacii";
+                },
+                function (errResponse) {
+                    console.log('Error while fetching filtered reservaction in RezervacijaController');
+                }
+            )
+    }
     self.fetchAllHotels();
     self.FetchAll();
 

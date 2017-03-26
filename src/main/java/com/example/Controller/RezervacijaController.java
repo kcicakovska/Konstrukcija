@@ -94,8 +94,8 @@ public class RezervacijaController {
         return result1;
     }
 
-    @RequestMapping(value = "/rezervacii/korisnik/{id}")
-    public Iterable<Rezervacija> find(@PathVariable (name="id") KorisnikKupuvac id){
+    @RequestMapping(value = "/rezervacii/korisnik/")
+    public Iterable<Rezervacija> find(@RequestBody KorisnikKupuvac id){
         return rezervacijaService.findByKorisnikId(id);
     }
 

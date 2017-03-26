@@ -48,6 +48,19 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
                         console.log('Error while saving the reservation in rezeracijaController');
                     }
                 )
+        },
+        reservationById:function(korisnik){
+            console.log(korisnik +"   pecatam korisnik");
+            return $http.post('http://localhost:9080/rezervacii/korisnik/',korisnik)
+                .then(
+                    function(d){
+                        return d.data;
+                    },
+                    function(errResponse){
+                        console.log('Error while geting all reservation by id');
+                    }
+                )
         }
+
     }
 }]);

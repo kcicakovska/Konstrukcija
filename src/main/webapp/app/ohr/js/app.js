@@ -43,6 +43,9 @@ app.config(['$routeProvider', function($routeProvider){
         })
         .when("/recepcioner",{
             templateUrl:"template/Recepcioner.html"
+        })
+        .when("/rezervacii",{
+        templateUrl:"template/Rezervacii.html"
         }).otherwise({
          redirectTo: "/"
 

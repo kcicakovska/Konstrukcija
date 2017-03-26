@@ -105,22 +105,22 @@
                     <div class="collapse navbar-collapse" id="htlfndr-main-nav">
                         <ul class="nav navbar-nav">
                             <li class="active">
-                                <a href="#/korisnik" ng-show="userCtrl.korisnik.tip=='korisnik'">Дома</a>
-                                <a href="#/direktor" ng-show="userCtrl.korisnik.tip=='direktor'">Дома</a>
-                                <a href="#/admin" ng-show="userCtrl.korisnik.tip=='admin'">Дома</a>
-                                <a href="#/validator" ng-show="userCtrl.korisnik.tip=='validator'">Дома</a>
-                                <a href="#/tehnickapodrska" ng-show="userCtrl.korisnik.tip=='tehnickapodrshka'">Дома</a>
+                                <a href="#/korisnik" ng-show="userCtrl.user.tip=='kupuvac'">Дома</a>
+                                <a href="#/direktor" ng-show="userCtrl.user.tip=='direktor'">Дома</a>
+                                <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Дома</a>
+                                <a href="#/validator" ng-show="userCtrl.user.tip=='validator'">Дома</a>
+                                <a href="#/tehnickapodrska" ng-show="userCtrl.user.tip=='tehnickapodrshka'">Дома</a>
                             </li>
                             <li>
-                                <a href="#/direktor" ng-show="userCtrl.korisnik.tip=='direktor'">Промени Хотел</a>
-                                <a href="#/searchHotel" ng-show="userCtrl.korisnik.tip=='korisnik'">Пребарај хотели</a>
-                                <a href="#/admin" ng-show="userCtrl.korisnik.tip=='admin'">Види предходни извештаи</a>
-                                <a href="#/tehnickapodrshka" ng-show="userCtrl.korisnik.tip=='tehnickapodrshka'">Види предходни проблеми</a>
+                                <a href="#/direktor" ng-show="userCtrl.user.tip=='direktor'">Промени Хотел</a>
+                                <a href="#/searchHotel" ng-show="userCtrl.user.tip=='korisnik'">Пребарај хотели</a>
+                                <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Види предходни извештаи</a>
+                                <a href="#/tehnickapodrshka" ng-show="userCtrl.user.tip=='tehnickapodrshka'">Види предходни проблеми</a>
                             </li>
                             <li>
-                            <a href=blog-index.html ng-show="userCtrl.korisnik.tip=='korisnik'">Преглед на резервации</a>
-                            <a href=blog-index.html ng-show="userCtrl.korisnik.tip=='direktor'">Преглед на соби</a>
-                            <a href="#/admin" ng-show="userCtrl.korisnik.tip=='admin'">Извештаи по хотели</a>
+                            <button  ng-show="userCtrl.user.tip=='kupuvac'" ng-click="rezervacijaCtrl.RezervationById(userCtrl.user.id)">Преглед на резервации</button>
+                            <a href=blog-index.html ng-show="userCtrl.user.tip=='direktor'">Преглед на соби</a>
+                            <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Извештаи по хотели</a>
                             </li>
                             <li><a href=korisnik-page.html>Профил</a></li>
                             <li class=dropdown>
@@ -168,7 +168,8 @@
             </nav>
         </div>
         <h1>{{(userCtrl.checkLogged!=false && userCtrl.user.tip==='kupuvac' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged===false}}</h1>
-      <section class=htlfndr-slider-section ng-show="(userCtrl.checkLogged!=false && userCtrl.user.tip=='kupuvac' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged==false">
+        <h1>{{userCtrl.user.tip}}</h1>
+        <section class=htlfndr-slider-section ng-show="(userCtrl.checkLogged!=false && userCtrl.user.tip=='kupuvac' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged==false">
             <div class=owl-carousel>
                 <div class=htlfndr-slide-wrapper>
                     <img src=images/slider-image-1.jpg alt=img-1 />
