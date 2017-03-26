@@ -1,11 +1,17 @@
 package com.example.Model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 
 @Entity
 @Table(name = "rezervacija", schema = "example", catalog = "")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        scope = Rezervacija.class,
+        property = "id")
 public class Rezervacija {
     private int id;
     private Date datumDo;

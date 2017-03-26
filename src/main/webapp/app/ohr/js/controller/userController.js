@@ -20,7 +20,7 @@ app.controller('userController',['$scope','$window','UserService', function($sco
         notifikacijaDo:'',
         notifikacijaOd:'',
 		tip:''
-	}
+	};
 	self.users = [];
 
 		self.checkSingIn = function(){

@@ -13,6 +13,9 @@ import java.io.Serializable;
 @Table(name = "soba", schema = "example" )
 
 @JsonIdentityReference(alwaysAsId=true)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        scope = Soba.class,
+        property = "id")
 public class Soba implements Serializable{
     private int id;
     private String tipNaSoba;
@@ -165,6 +168,10 @@ public class Soba implements Serializable{
     }
 
     public Soba() {
+    }
+
+    public Soba(int id) {
+        this.id = id;
     }
 
     public void setBrSoba(int brSoba) {

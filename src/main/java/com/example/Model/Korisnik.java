@@ -1,10 +1,16 @@
 package com.example.Model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "korisnik", schema = "example")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        scope = Korisnik.class,
+        property = "id")
 public class Korisnik {
     private int id;
     private String korisnickoIme;
