@@ -1,34 +1,19 @@
 <main role=main>
-    <table id="username">
+    <table id="username" class="table">
         <tr>
-            <td>Име</td>
-            <td>Ембг</td>
-            <td>Соба</td>
-            <td>Датум</td>
+            <th>број на соба</th>
+            <th>тип на соба</th>
+            <th>датум од</th>
+            <th>датум до</th>
+            <th>датум на одјава</th>
         </tr>
-        <tr>
-            <td>Миланчо</td>
-            <td>***************</td>
-            <td>213</td>
-            <td>од 12 до 15 октомври 2016</td>
+        <tr ng-repeat="r  in rezervacijaCtrl.FilterAtReservation ">
+            <td>{{r.sobaByIdSoba.brSoba}}</td>
+            <td>{{r.sobaByIdSoba.tipNaSoba}}</td>
+            <td>{{r.datumOd}}</td>
+            <td>{{r.datumDo}}</td>
+            <td>{{r.datumOdjava}}</td>
         </tr>
-        <tr>
-            <td>Миланчо</td>
-            <td>***************</td>
-            <td>213</td>
-            <td>од 12 до 15 октомври 2016</td>
-        </tr>
-        <tr>
-            <td>Миланчо</td>
-            <td>***************</td>
-            <td>213</td>
-            <td>од 12 до 15 октомври 2016</td>
-        </tr>
-        <tr>
-            <td>Миланчо</td>
-            <td>***************</td>
-            <td>213</td>
-            <td>од 12 до 15 октомври 2016</td>
-        </tr>
+
     </table>
 </main>

@@ -2,6 +2,7 @@
 
 app.controller('rezervacijaController',['$scope','$window','RezervacijaService','HotelServices', function($scope,$window,RezervacijaService,HotelServices) {
     var self = this;
+    self.FilterAtReservation=[];
     self.hotelsFree = [];
     self.hotel={
         ime:'',
@@ -38,11 +39,13 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
         korisnikKupuvacByIdKorisnik:{},
     };
     self.hotels=[];
+
     self.FetchAll = function () {
         RezervacijaService.FetchAll()
             .then(
                 function(d){
                     self.rezervacii = d;
+                    self.Filter(1);
                 },
                 function(errResponse){
                     console.log('Error while fetching all Reservation in RezervacijaController');
@@ -50,6 +53,7 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
 
             )
     };
+
     self.findReservation = function(){
         console.log(self.rezervacija.datumOd+" "+self.rezervacija.datumDo);
         if(self.rezervacija.datumOd!="" && self.rezervacija.datumDo!="") {
@@ -135,6 +139,17 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
                 }
             )
     };
+    self.Filter=function(id){
+
+        for (var i =0; i<self.rezervacii.length;i++){
+            if(self.rezervacii[i].sobaByIdSoba.hotelByHotelId.id==id){
+                self.FilterAtReservation.push(self.rezervacii[i]);
+            }
+
+
+        }
+    };
     self.fetchAllHotels();
     self.FetchAll();
+
 }]);
