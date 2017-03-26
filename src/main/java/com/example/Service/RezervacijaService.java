@@ -1,5 +1,6 @@
 package com.example.Service;
 
+import com.example.Model.KorisnikKupuvac;
 import com.example.Model.Rezervacija;
 import com.example.Repository.RezervacijaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,8 @@ public class RezervacijaService {
     }
     public Iterable<Rezervacija>findByDate(Date datumOd, Date datumDo){
         return rezervacijaRepository.findByDatumOdBetween(datumOd,datumDo);
+    }
+    public Iterable<Rezervacija>findByKorisnikId(KorisnikKupuvac id){
+        return rezervacijaRepository.findBykorisnikKupuvacByIdKorisnik(id);
     }
 }

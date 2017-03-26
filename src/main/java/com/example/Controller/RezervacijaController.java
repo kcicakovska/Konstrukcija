@@ -1,6 +1,7 @@
 package com.example.Controller;
 
 import com.example.Model.Hotel;
+import com.example.Model.KorisnikKupuvac;
 import com.example.Model.Rezervacija;
 import com.example.Model.Soba;
 import com.example.Service.HotelService;
@@ -91,6 +92,11 @@ public class RezervacijaController {
             result1.get(i).setSobasById(tmp);
         }
         return result1;
+    }
+
+    @RequestMapping(value = "/rezervacii/korisnik/{id}")
+    public Iterable<Rezervacija> find(@PathVariable (name="id") KorisnikKupuvac id){
+        return rezervacijaService.findByKorisnikId(id);
     }
 
 
