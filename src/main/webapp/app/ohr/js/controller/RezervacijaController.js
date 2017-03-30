@@ -92,7 +92,10 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
                     console.log(self.hotels[i].sobasById[k]);
                     if (pomosh.brSoba == self.hotels[i].sobasById[k].brSoba) {
                         console.log(self.hotels[i].sobasById[k]);
-                        self.rezervacija.sobaByIdSoba = self.hotels[i].sobasById[k];
+                        self.rezervacija.sobaByIdSoba.id = self.hotels[i].sobasById[k].id;
+                        self.rezervacija.sobaByIdSoba.cena = self.hotels[i].sobasById[k].cena;
+                        self.rezervacija.sobaByIdSoba.brSoba = self.hotels[i].sobasById[k].brSoba;
+                        self.rezervacija.sobaByIdSoba.tip = self.hotels[i].sobasById[k].tip;
                         self.pomoshHotel = ime;
                         boolea = true;
                         break;
