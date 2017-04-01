@@ -3,18 +3,17 @@
  <h2 class=htlfndr-section-title>Одговор од техничка подршка</h2>
 
 <div class="panel panel-info">
-  <div class="panel-heading">Проблем со логирање</div>
   <div class="panel-body">
-Не можам да се логирам иако сум веќе регистриран корисник.  
+    <p>{{tehpodCtrl.tehPod.problem}}<p/>
   </div>
 </div>
   <div>
   <h6> Одговор:</h6>
   <div class="form-group">
-  <textarea class="form-control" rows="5"></textarea>
+  <textarea class="form-control" rows="5" ng-model="tehpodCtrl.tehPod.odgovor"></textarea>
 </div>
 <div>
- <button type="button" class="btn btn-primary">Прати одговор</button>
+ <button type="button" class="btn btn-primary" ng-click="tehpodCtrl.createNew(userCtrl.user)">Прати одговор</button>
  </div>
 	
 </main>
