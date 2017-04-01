@@ -7,6 +7,9 @@
             <th>датум од</th>
             <th>датум до</th>
             <th>датум на одјава</th>
+            <th>оценка</th>
+            <th>коментар</th>
+
         </tr>
         <tr ng-repeat="r  in rezervacijaCtrl.rezervacii ">
             <td>{{r.sobaByIdSoba.hotelByHotelId.ime}}</td>
@@ -15,6 +18,8 @@
             <td>{{r.datumOd}}</td>
             <td>{{r.datumDo}}</td>
             <td>{{r.datumOdjava}}</td>
+            <td></td>
+            <td></td>
         </tr>
 
     </table>
