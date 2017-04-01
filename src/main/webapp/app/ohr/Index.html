@@ -123,6 +123,7 @@
                             <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Извештаи по хотели</a>
                             </li>
                             <li><a href=korisnik-page.html>Профил</a></li>
+                            <li><a ng-hide="userCtrl.user.tip === tehnickapodrshka"  href="#/prijaviproblem">Пријави проблем</a></li>
                             <li class=dropdown>
                                 <a href=# onclick="return false">Pages</a>
                                 <ul class=dropdown-menu>
@@ -248,7 +249,7 @@
             <h2>You have JavaScript disabled!</h2>
         </noscript>
     </header> 
-    <div class="container">
+    <div class="container" ng-controller="TehnickaPodrshkaController as tehpodCtrl">
 		<div ng-view></div>
     </div>
     <footer class=htlfndr-footer>
@@ -425,6 +426,8 @@
 <script src=js/controller/userController.js></script>
 <script src="js/services/RezervacijaService.js"></script>
 <script src="js/controller/RezervacijaController.js"></script>
+<script src="js/services/TehnickaPodrshkaService.js"></script>
+<script src="js/controller/TehnickaPodrshkaController.js"></script>
 <script src=js/tinysort.js></script>
 
 <script src=js/jquery.responsiveTabs.min.js></script>
