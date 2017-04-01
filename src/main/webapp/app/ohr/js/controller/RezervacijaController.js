@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('rezervacijaController',['$scope','$window','RezervacijaService','HotelServices', function($scope,$window,RezervacijaService,HotelServices) {
+app.controller('rezervacijaController',['$scope','$window','$document','RezervacijaService','HotelServices', function($scope,$window,$document,RezervacijaService,HotelServices) {
     var self = this;
     self.FilterAtReservation=[];
     self.hotelsFree = [];
@@ -148,9 +148,9 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
             if(self.rezervacii[i].sobaByIdSoba.hotelByHotelId.id==id){
                 self.FilterAtReservation.push(self.rezervacii[i]);
             }
-
-
         }
+
+
     };
     self.RezervationById=function(id){
         RezervacijaService.reservationById(id)
@@ -161,13 +161,43 @@ app.controller('rezervacijaController',['$scope','$window','RezervacijaService',
                    // var url = location.href;
                    // url = url.substr(0,url.length-6);
                     location.href += "rezervacii";
+                 /*   $( document ).ready(function() {
+                        var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth()+1; //January is 0!
+                    var yyyy = today.getFullYear();
+
+                    if(dd<10) {
+                        dd='0'+dd
+                    }
+
+                    if(mm<10) {
+                        mm='0'+mm
+                    }
+
+                    today = mm+'/'+dd+'/'+yyyy;
+                    console.log(today);
+                    //var odjavaElements = $document[0].getElementsByClassName("odjavaData");
+                    var odjavaElements =angular.element(document).find(".odjavaData");
+
+                    console.log(odjavaElements.length,"ooooooo");
+                    for (var i =0 ; i <odjavaElements.length; i++) {
+                        odjavaElements[i].style.backgroundColor = "red";
+                   }
+
+
+                    });*/
                 },
                 function (errResponse) {
                     console.log('Error while fetching filtered reservaction in RezervacijaController');
                 }
             )
+
     }
     self.fetchAllHotels();
     self.FetchAll();
+    //data now
 
+
+   // $('.inptedit').removeAttr('readonly')
 }]);
