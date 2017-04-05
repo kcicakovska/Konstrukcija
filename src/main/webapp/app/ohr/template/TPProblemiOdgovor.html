@@ -1,0 +1,21 @@
+<main role=main>
+ <section class="container htlfndr-top-destinations">
+ <h2 class=htlfndr-section-title>Техничка подршка прашања и одговри</h2>
+ <div class=htlfndr-section-under-title-line></div>
+ <!--  <p>{{tehpodCtrl.tehPods.length}} Golemina</p> -->
+ <div class="row">
+  <div class="col-sm-6 col-md-4" ng-repeat="t in tehpodCtrl.tehPods">
+    <div class="thumbnail">
+        <div class="caption">
+        <h3>Проблем {{$index +1}}</h3>
+		    <pre style="background-color: hsla(210,100%,40%,0.3)  ;border-radius: 20px;border: 2px solid #6983ff;"> {{t.problem}}</pre>
+            <h3>Одговор </h3>
+            <pre style="background-color: hsla(210,100%,40%,0.3)  ;border-radius: 20px;border: 2px solid #6983ff;"> {{t.odgovor}}</pre>
+
+      </div>
+    </div>
+  </div>
+ </div>
+</section>
+	
+</main>
