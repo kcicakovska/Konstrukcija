@@ -26,6 +26,9 @@ app.config(['$routeProvider', function($routeProvider){
         .when("/tehnickapodrska",{
             templateUrl:"template/TehnickaPodrska.html"
         })
+        .when("/tehnickapodrskaodgovori",{
+            templateUrl:"template/TPProblemiOdgovor.html"
+        })
         .when("/validator",{
             templateUrl:"template/Validator.html"
         })

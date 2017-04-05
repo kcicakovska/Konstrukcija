@@ -447,7 +447,7 @@ function slider() {
         })
     }
     var c = $("#htlfndr-price-slider");
-	console.log(c);
+
     c.slider({
         range: true,
         min: 0,

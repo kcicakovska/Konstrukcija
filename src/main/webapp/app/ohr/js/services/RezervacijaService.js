@@ -5,7 +5,7 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
             return $http.post('http://localhost:9080/rezerviraj',tmp)
                 .then(
                     function(d){
-                        console.log(d);
+
                         return d.data;
                     },
                     function(errResponse){
@@ -18,7 +18,7 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
             return $http.get('http://localhost:9080/rezervacii/'+from+"/"+to)
                 .then(
                     function(d){
-                        console.log(d);
+
                         return d.data;
                     },
                     function(errResponse){
@@ -30,7 +30,7 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
             return $http.get('http://localhost:9080/rezervacii')
                 .then(
                     function(d){
-                        console.log(d);
+
                         return d.data;
                     },
                     function(errResponse){
