@@ -1,6 +1,10 @@
 <main role=main>
-    <table id="username" class="table">
-        <tr>
+   <div class="col-md-12">
+       <br>
+       <br>
+    <table id="username" class="table table-striped table-hover">
+        <thead>
+        <tr style="background-color: #66afe9 ;color:white">
             <th>хотел</th>
             <th>број на соба</th>
             <th>тип на соба</th>
@@ -11,7 +15,8 @@
             <th>коментар</th>
 
         </tr>
-        <tr ng-repeat="r  in rezervacijaCtrl.rezervacii ">
+        </thead>
+        <tr class ="" ng-repeat="r  in rezervacijaCtrl.rezervacii ">
             <td>{{r.sobaByIdSoba.hotelByHotelId.ime}}</td>
             <td>{{r.sobaByIdSoba.brSoba}}</td>
             <td>{{r.sobaByIdSoba.tipNaSoba}}</td>
@@ -23,4 +28,7 @@
         </tr>
 
     </table>
+       <br>
+       <br>
+   </div>
 </main>

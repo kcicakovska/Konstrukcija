@@ -58,7 +58,7 @@ app.controller('userController',['$scope','$window','UserService', function($sco
                 }
 )};
     self.populateLogUser = function () {
-    	console.log("Yes");
+
         if (sessionStorage.getItem('user')) {
             console.log(sessionStorage.getItem('user'));
             self.logedUser = sessionStorage.getItem('user');
@@ -66,7 +66,7 @@ app.controller('userController',['$scope','$window','UserService', function($sco
             UserService.FetchByName(name)
                 .then(
                     function (d) {
-                        console.log("User populated");
+
 
                         self.user = d;
                         if(self.user.tip==='admin'){
@@ -98,10 +98,10 @@ app.controller('userController',['$scope','$window','UserService', function($sco
         }
     };
 self.Register = function(){
-			console.log(self.user);
+
 	UserService.RegisterUser(self.user).then(
 				function (d) {
-					console.log(self.user.korisnickoIme+" "+ self.user.ime+"   Ovaa e korisnikot");
+
                     if(self.user.tip==='admin'){
 						self.checkLogged=true;
 						$('#htlfndr-sing-in').modal('hide');

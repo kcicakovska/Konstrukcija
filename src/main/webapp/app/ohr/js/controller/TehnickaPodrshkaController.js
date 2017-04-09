@@ -27,7 +27,7 @@ app.controller('TehnickaPodrshkaController',['$scope','$window','TehnickaPodrshk
     TehnickaPodrshkaService.FetchAll()
         .then(
             function(d){
-              console.log(d);
+
               self.tehPods = d;
             },
             function(errResponse){

@@ -61,7 +61,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
                 .then(
                     function (d) {
                         self.hotelsFree = d;
-                        console.log(d);
+
                     },
                     function (errResponse) {
                         console.log('Error while fetching filtered reservaction in RezervacijaController');
@@ -71,7 +71,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
             HotelServices.FetchAll()
                 .then(
                     function(d){
-                        console.log("Tuka sum");
+
                         self.hotelsFree = d;
                     },
                     function(errResponse){
@@ -83,7 +83,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
 
     self.makeReservation = function(korisnik,pomosh,ime){
         //console.log(korisnik);
-        console.log(pomosh);
+
         var boolea = false;
         self.rezervacija.korisnikKupuvacByIdKorisnik.id = korisnik.id;
         for(var i = 0; i < self.hotels.length; i++){
@@ -110,8 +110,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
         var lastDay = new Date(self.rezervacija.datumDo);
         var diffDay = Math.round(Math.abs((firsDay.getTime()-lastDay.getTime())/oneDay));
         self.DenoviRezervirani = diffDay;
-        console.log(diffDay);
-        console.log(self.rezervacija);
+
        // self.saveReservation();
         var url = location.href;
         url = url.substr(0,url.length-11);
@@ -134,7 +133,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
         HotelServices.FetchAll()
             .then(
                 function(d){
-                    console.log("Tuka sum");
+
                     self.hotels = d;
                 },
                 function(errResponse){
@@ -157,7 +156,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
             .then(
                 function (d) {
                     self.rezervacii = d;
-                    console.log(d);
+
                    // var url = location.href;
                    // url = url.substr(0,url.length-6);
                     location.href += "rezervacii";

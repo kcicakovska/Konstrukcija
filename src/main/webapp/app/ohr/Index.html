@@ -117,8 +117,8 @@
                                 <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Види предходни извештаи</a>
                                 <a href="#/tehnickapodrshka" ng-show="userCtrl.user.tip=='tehnickapodrshka'">Види предходни проблеми</a>
                             </li>
-                            <li class="active">
-                                <button class="btn btn-link"  ng-show="userCtrl.user.tip=='kupuvac'" ng-click="rezervacijaCtrl.RezervationById(userCtrl.user.id)">Преглед на резервации</button>
+                            <li>
+                            <button class="btn btn-link" style="color: black"  ng-show="userCtrl.user.tip=='kupuvac'" ng-click="rezervacijaCtrl.RezervationById(userCtrl.user.id)">Преглед на резервации</button>
                             <a href=blog-index.html ng-show="userCtrl.user.tip=='direktor'">Преглед на соби</a>
                             <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Извештаи по хотели</a>
                             </li>
@@ -168,8 +168,9 @@
                 </div>
             </nav>
         </div>
+        <!--
         <h1>{{(userCtrl.checkLogged!=false && userCtrl.user.tip==='kupuvac' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged===false}}</h1>
-        <h1>{{userCtrl.user.tip}}</h1>
+        <h1>{{userCtrl.user.tip}}</h1> -->
         <section class=htlfndr-slider-section ng-show="(userCtrl.checkLogged!=false && userCtrl.user.tip=='kupuvac' && !$windows.location.href.includes('searchresult')) || userCtrl.checkLogged==false">
             <div class=owl-carousel>
                 <div class=htlfndr-slide-wrapper>

@@ -1,11 +1,11 @@
 app.factory('TehnickaPodrshkaService', ['$http', '$q', function($http, $q){
   return{
     FetchAll:function(){
-      console.log("ME povika vo service");
+
       return $http.get('http://localhost:9080/tehpod/lista')
           .then(
               function(d){
-                console.log(d.data);
+
                 return d.data;
               },
               function(errResponse){
