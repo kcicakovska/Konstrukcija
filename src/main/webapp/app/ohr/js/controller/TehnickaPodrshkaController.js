@@ -36,13 +36,15 @@ app.controller('TehnickaPodrshkaController',['$scope','$window','TehnickaPodrshk
         )
   }
   self.createNew = function (user) {
-    self.tehPod.tehnickapodrshkaByIdTehnicka.id = 3;
-    self.tehPod.tehnickapodrshkaByIdTehnicka.korisnikById = user;
-    console.log(self.tehPod);
+      self.tehPod.idTehnicka = 3;
+      self.tehPod.tehnickapodrshkaByIdTehnicka.id = 3;
+      self.tehPod.tehnickapodrshkaByIdTehnicka.korisnikById.id = user.id;
+     // console.log(self.tehPod);
     TehnickaPodrshkaService.CreateNew(self.tehPod)
         .then(
             function(d){
               self.tehPod = d;
+              alert("Вашиот проблем е испрате до техничка подрашка")
             },
             function(errResponse){
               console.log('Error while creatng tehnickaPod in TehnickaPodrshakaController');
