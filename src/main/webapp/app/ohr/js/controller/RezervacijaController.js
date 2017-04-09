@@ -45,7 +45,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
             .then(
                 function(d){
                     self.rezervacii = d;
-                    self.Filter(1);
+                    self.Filter(0);
                 },
                 function(errResponse){
                     console.log('Error while fetching all Reservation in RezervacijaController');
@@ -196,6 +196,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
     }
     self.fetchAllHotels();
     self.FetchAll();
+
     //data now
 
 

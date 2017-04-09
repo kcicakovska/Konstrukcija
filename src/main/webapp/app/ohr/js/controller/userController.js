@@ -52,6 +52,11 @@ app.controller('userController',['$scope','$window','UserService', function($sco
 						$('#htlfndr-sing-in').modal('hide');
 						location.href +="tehnickapodrska";
 					}
+                    else if(self.user.tip==='recepcioner'){
+                        self.checkLogged=true;
+                        $('#htlfndr-sing-in').modal('hide');
+                        location.href +="recepcioner";
+                    }
                 },
                 function (errResponse) {
                     console.log('Error while fetching ticket in TicketController');
@@ -89,7 +94,12 @@ app.controller('userController',['$scope','$window','UserService', function($sco
                             self.checkLogged=true;
                             $('#htlfndr-sing-in').modal('hide');
                             location.href +="tehnickapodrska";
+                        }else if(self.user.tip==='recepcioner'){
+                            self.checkLogged=true;
+                            $('#htlfndr-sing-in').modal('hide');
+                            location.href +="recepcioner";
                         }
+
                     },
                     function (err) {
                         console.log("Error!!!")
