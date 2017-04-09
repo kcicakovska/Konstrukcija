@@ -7,10 +7,10 @@
   </div>
   <div class="form-group">
   <h6>Опиши го проблемот:</h6>
-  <textarea class="form-control" rows="5"></textarea>
+  <textarea class="form-control" rows="5" ng-model="tehpodCtrl.tehPod.problem"></textarea>
 </div>
 <div>
- <button type="button" class="btn btn-primary" ng-click=""> Пријави проблем</button>
+ <button type="button" class="btn btn-primary" ng-click="tehpodCtrl.createNew(userCtrl.user)"> Пријави проблем</button>
  </div>
 	
 </main>

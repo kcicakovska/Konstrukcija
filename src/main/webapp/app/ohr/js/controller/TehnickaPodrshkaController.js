@@ -36,7 +36,7 @@ app.controller('TehnickaPodrshkaController',['$scope','$window','TehnickaPodrshk
         )
   }
   self.createNew = function (user) {
-    self.tehPod.tehnickapodrshkaByIdTehnicka.id = user.id;
+    self.tehPod.tehnickapodrshkaByIdTehnicka.id = 3;
     self.tehPod.tehnickapodrshkaByIdTehnicka.korisnikById = user;
     console.log(self.tehPod);
     TehnickaPodrshkaService.CreateNew(self.tehPod)

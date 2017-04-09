@@ -24,6 +24,7 @@ public class TehnickaPodrskaController {
 
     @RequestMapping(value="/tehpod/nov",method = RequestMethod.POST)
     public OdgovorZaPomosh save(@RequestBody OdgovorZaPomosh tmp){
+        System.out.println(tmp.toString());
         return tehnickaPodrskaService.save(tmp);
     }
 }
