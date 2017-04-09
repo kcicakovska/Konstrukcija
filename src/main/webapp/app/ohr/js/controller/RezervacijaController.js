@@ -89,7 +89,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
         for(var i = 0; i < self.hotels.length; i++){
             if(self.hotels[i].ime==ime) {
                 for (var k = 0; k < self.hotels[i].sobasById.length; k++) {
-                    console.log(self.hotels[i].sobasById[k]);
+                    //console.log(self.hotels[i].sobasById[k]);
                     if (pomosh.brSoba == self.hotels[i].sobasById[k].brSoba) {
                         console.log(self.hotels[i].sobasById[k]);
                         self.rezervacija.sobaByIdSoba.id = self.hotels[i].sobasById[k].id;
@@ -123,6 +123,7 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
             .then(
                 function(d){
                     self.rezervacija = d;
+                    alert("Вашата резервација е платена")
                 },
                 function(errResponse){
                     console.log('Error while saving reservation in reservationController');

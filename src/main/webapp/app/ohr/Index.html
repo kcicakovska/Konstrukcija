@@ -116,14 +116,17 @@
                                 <a href="#/searchHotel" ng-show="userCtrl.user.tip=='korisnik'">Пребарај хотели</a>
                                 <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Види предходни извештаи</a>
                                 <a href="#/tehnickapodrshka" ng-show="userCtrl.user.tip=='tehnickapodrshka'">Види предходни проблеми</a>
+                                <a href="#/tehnickapodrskaodgovori" ng-show="userCtrl.user.tip=='kupuvac'">Пријавени проблеми</a>
                             </li>
                             <li>
-                            <button class="btn btn-link" style="color: black"  ng-show="userCtrl.user.tip=='kupuvac'" ng-click="rezervacijaCtrl.RezervationById(userCtrl.user.id)">Преглед на резервации</button>
-                            <a href=blog-index.html ng-show="userCtrl.user.tip=='direktor'">Преглед на соби</a>
-                            <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Извештаи по хотели</a>
+                                <button class="btn btn-link" style="color: black"  ng-show="userCtrl.user.tip=='kupuvac'" ng-click="rezervacijaCtrl.RezervationById(userCtrl.user.id)">Преглед на резервации</button>
+                                <a href=blog-index.html ng-show="userCtrl.user.tip=='direktor'">Преглед на соби</a>
+                                <a href="#/admin" ng-show="userCtrl.user.tip=='admin'">Извештаи по хотели</a>
+
                             </li>
                             <li><a href=korisnik-page.html>Профил</a></li>
                             <li><a ng-hide="userCtrl.user.tip === tehnickapodrshka"  href="#/prijaviproblem">Пријави проблем</a></li>
+                            <!--
                             <li class=dropdown>
                                 <a href=# onclick="return false">Pages</a>
                                 <ul class=dropdown-menu>
@@ -162,7 +165,7 @@
                                     <li><a href=thanks-page.html>Thanks Page</a></li>
                                     <li><a href=404-page.html>404 Page</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>

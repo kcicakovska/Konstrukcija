@@ -6,13 +6,14 @@
         <thead>
         <tr style="background-color: #66afe9 ;color:white">
             <th>хотел</th>
-            <th>број на соба</th>
+            <th># соба</th>
             <th>тип на соба</th>
             <th>датум од</th>
             <th>датум до</th>
             <th>датум на одјава</th>
             <th>оценка</th>
             <th>коментар</th>
+            <th></th>
 
         </tr>
         </thead>
@@ -22,9 +23,10 @@
             <td>{{r.sobaByIdSoba.tipNaSoba}}</td>
             <td>{{r.datumOd}}</td>
             <td>{{r.datumDo}}</td>
-            <td class="odjavaData">{{r.datumOdjava}}</td>
-            <td><input class="inptedit" readonly></td>
-            <td><input class="inptedit" readonly></td>
+            <td>{{r.datumOdjava}}</td>
+            <td><input ng-value="r.ocenka"></td>
+            <td><input class="input-sm" ng-value="r.komentar"></td>
+            <td><button class="btn">ажурирај</button></td>
         </tr>
 
     </table>

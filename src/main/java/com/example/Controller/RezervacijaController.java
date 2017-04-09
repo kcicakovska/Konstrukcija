@@ -33,7 +33,7 @@ public class RezervacijaController {
 
     @RequestMapping(value="/rezerviraj",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     public Rezervacija findByHotel(@RequestBody Rezervacija tmp){
-        System.out.println(tmp.toString());
+       // System.out.println(tmp.toString());
         return rezervacijaService.save(tmp);
     }
     @RequestMapping(value="/rezervacii",method = RequestMethod.GET)

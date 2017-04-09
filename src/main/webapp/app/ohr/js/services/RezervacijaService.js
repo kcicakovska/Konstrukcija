@@ -30,7 +30,7 @@ app.factory('RezervacijaService',['$http','$q',function($http,$q){
             return $http.get('http://localhost:9080/rezervacii')
                 .then(
                     function(d){
-
+                        //console.log(d);
                         return d.data;
                     },
                     function(errResponse){
