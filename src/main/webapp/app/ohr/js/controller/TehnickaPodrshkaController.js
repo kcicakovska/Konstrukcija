@@ -23,6 +23,10 @@ app.controller('TehnickaPodrshkaController',['$scope','$window','TehnickaPodrshk
     self.tehPod = t;
     location.href = location.href.substr(0,location.href.length-15)+"tehnickapodrskaodgovor";
   }
+
+  /**
+   * Fetching all TehPods information form table OdgovorZaPomosh
+   */
   self.fetchAll = function () {
     TehnickaPodrshkaService.FetchAll()
         .then(
@@ -35,6 +39,10 @@ app.controller('TehnickaPodrshkaController',['$scope','$window','TehnickaPodrshk
             }
         )
   }
+  /**
+   * Creating or updating information for asked question by the user
+   * @param user person who ask question
+   */
   self.createNew = function (user) {
       self.tehPod.idTehnicka = 3;
       self.tehPod.tehnickapodrshkaByIdTehnicka.id = 3;
@@ -45,6 +53,7 @@ app.controller('TehnickaPodrshkaController',['$scope','$window','TehnickaPodrshk
             function(d){
               self.tehPod = d;
               alert("Вашиот проблем е испрате до техничка подрашка")
+              self.tehPod = "";
             },
             function(errResponse){
               console.log('Error while creatng tehnickaPod in TehnickaPodrshakaController');

@@ -23,6 +23,9 @@ app.controller('userController',['$scope','$window','UserService', function($sco
 	};
 	self.users = [];
 
+  /**
+   * See if user exist in database if add him to Session and local storage and redirect
+   */
 		self.checkSingIn = function(){
 			console.log(self.user.lozinka+" "+self.user.korisnickoIme);
 		UserService.LogginUser(self.user).then(
@@ -62,7 +65,11 @@ app.controller('userController',['$scope','$window','UserService', function($sco
                     console.log('Error while fetching ticket in TicketController');
                 }
 )};
-    self.populateLogUser = function () {
+
+  /**
+   * On refresh if user is already logged don't logout him redirect to home page
+   */
+  self.populateLogUser = function () {
 
         if (sessionStorage.getItem('user')) {
             console.log(sessionStorage.getItem('user'));
@@ -107,12 +114,16 @@ app.controller('userController',['$scope','$window','UserService', function($sco
                 )
         }
     };
-self.Register = function(){
+
+  /**
+   * User registration if everything is successful redirect to screen depending of type of user
+   *
+   */
+  self.Register = function(){
 
 	UserService.RegisterUser(self.user).then(
 				function (d) {
-
-                    if(self.user.tip==='admin'){
+          if(self.user.tip==='admin'){
 						self.checkLogged=true;
 						$('#htlfndr-sing-in').modal('hide');
 						location.href +="admin";
@@ -138,6 +149,9 @@ self.Register = function(){
                     console.log('Error while registering user in UserController');
                 }
 )}
+  /**
+   * Logout clear Session and Local Storage
+   */
 	self.Logout = function(){
 		self.user = {};
 		self.checkLogged=false;
@@ -145,13 +159,4 @@ self.Register = function(){
         localStorage.clear();
 	};
 	self.populateLogUser();
-/*self.see = function(){
-	var tmp = location.href;
-	var temp = tmp.split("#/");
-	if(!self.checkLogged && temp.length > 0){
-		location.href="/"
-	}
-}
-self.see();*/
-
 }])

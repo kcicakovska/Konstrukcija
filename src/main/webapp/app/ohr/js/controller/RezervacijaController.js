@@ -40,7 +40,10 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
     };
     self.hotels=[];
 
-    self.FetchAll = function () {
+  /**
+   * Fetching all reservation from database
+   */
+  self.FetchAll = function () {
         RezervacijaService.FetchAll()
             .then(
                 function(d){
@@ -81,6 +84,12 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
         }
     };
 
+  /**
+   * Making the json in form that can be entered in database for submitting an reservation
+   * @param korisnik
+   * @param pomosh
+   * @param ime
+   */
     self.makeReservation = function(korisnik,pomosh,ime){
         //console.log(korisnik);
 
@@ -116,8 +125,10 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
         url = url.substr(0,url.length-11);
         location.href = url +"payment";
     };
-
-    self.saveReservation = function(){
+  /**
+   * Saving reservation
+   */
+  self.saveReservation = function(){
         console.log(self.rezervacija);
         RezervacijaService.saveReservation(self.rezervacija)
             .then(
@@ -130,7 +141,10 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
                 }
             )
     };
-    self.fetchAllHotels = function(){
+  /**
+   * Fetching all hotels from database
+   */
+  self.fetchAllHotels = function(){
         HotelServices.FetchAll()
             .then(
                 function(d){
@@ -142,16 +156,18 @@ app.controller('rezervacijaController',['$scope','$window','$document','Rezervac
                 }
             )
     };
+  /**
+   * Filter function adding id of hotel to see just reservation from that hotel
+   * @param id
+   */
     self.Filter=function(id){
-
         for (var i =0; i<self.rezervacii.length;i++){
             if(self.rezervacii[i].sobaByIdSoba.hotelByHotelId.id==id){
                 self.FilterAtReservation.push(self.rezervacii[i]);
             }
         }
-
-
     };
+
     self.RezervationById=function(id){
         RezervacijaService.reservationById(id)
             .then(

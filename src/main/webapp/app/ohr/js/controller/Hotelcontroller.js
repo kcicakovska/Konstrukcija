@@ -33,8 +33,10 @@ app.controller('HotelController',['$scope', 'HotelServices' , function($scope, H
         sobasById:{},
         zvezdi:'',
     };
-
-    self.FetchAll = function () {
+  /**
+   * Fetching all hotels
+   */
+  self.FetchAll = function () {
         HotelServices.FetchAll()
             .then(
                 function (d) {
