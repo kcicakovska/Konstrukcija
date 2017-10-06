@@ -1,0 +1,21 @@
+package com.example.Repository;
+
+import com.example.Model.Validator;
+import com.example.Model.Validiraj;
+import com.example.Model.Hotel;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ValidatorRepository extends CrudRepository<Validiraj,Integer> {
+
+    @Override
+    Validiraj save (Validiraj tmp);
+
+    Iterable<Validiraj> findAll();
+
+    Iterable<Validiraj> findByvalidatorByIdValidator(Validator id);
+
+    Iterable<Validiraj>  findByhotelByIdHotel(Hotel id);
+
+}
