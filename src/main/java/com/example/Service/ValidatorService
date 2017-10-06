@@ -1,0 +1,31 @@
+package com.example.Service;
+
+import com.example.Model.Validator;
+import com.example.Model.Validiraj;
+import com.example.Model.Hotel;
+import com.example.Repository.ValidatorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ValidatorService {
+
+    @Autowired
+    ValidatorRepository validatorRepository;
+
+    public Validiraj save(Validiraj tmp) {return validatorRepository.save(tmp);}
+
+    public Iterable<Validiraj> findAll() {return validatorRepository.findAll();}
+
+    public Iterable<Validiraj>findByValidatorId(Validator id)
+    {
+        return validatorRepository.findByvalidatorByIdValidator(id);
+    }
+
+    public Iterable<Validiraj>findByHotelId(Hotel id)
+    {
+        return validatorRepository.findByhotelByIdHotel(id);
+    }
+
+
+}
