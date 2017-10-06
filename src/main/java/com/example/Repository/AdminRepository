@@ -1,0 +1,22 @@
+package com.example.Repository;
+
+import com.example.Model.Admin;
+//import com.example.Model.Hotel;
+import com.example.Model.Korisnik;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface AdminRepository extends CrudRepository<Admin,Integer> {
+
+
+    @Override
+    Admin save(Admin tmp);
+
+
+   // Iterable<Admin> findALL();
+
+    Iterable<Admin> findBykorisnikById(Korisnik id);
+
+//    Iterable<Admin> findByHotelById(Hotel id);
+}
