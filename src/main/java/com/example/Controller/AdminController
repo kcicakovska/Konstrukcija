@@ -1,0 +1,55 @@
+package com.example.Controller;
+
+import com.example.Model.Hotel;
+import com.example.Model.Korisnik;
+import com.example.Model.Validiraj;
+import com.example.Model.Admin;
+import com.example.Repository.AdminRepository;
+import com.example.Service.AdminService;
+import com.example.Service.HotelService;
+import com.example.Service.KorisnikService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+public class AdminController {
+
+@Autowired
+    AdminService adminService;
+
+@Autowired
+    KorisnikService korisnikService;
+
+/*
+@Autowired
+    HotelService hotelService;
+
+
+    @RequestMapping(value = "/hotel", method = RequestMethod.GET)
+    public Iterable<Admin> findAllH()
+    {
+        return adminService.findAll();
+    }   */
+/*
+@RequestMapping(value = "/revalidiraj", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Admin findByHotel(@RequestBody Admin tmp)
+{
+    return adminService.save(tmp);
+}
+
+@RequestMapping(value = "/hotel/")
+    public Iterable<Admin> find(@RequestBody Hotel id)
+    {
+        return adminService.findByHotelId(id);
+    }
+*/
+
+    @RequestMapping(value = "/korisnik/")
+    public Iterable<Admin> find(@RequestBody Korisnik id)
+    {
+        return adminService.findByKorisnikId(id);
+    }
+
+
+}
