@@ -1,0 +1,39 @@
+package com.example.Controller;
+
+import com.example.Model.Validiraj;
+import com.example.Service.HotelService;
+import com.example.Model.Hotel;
+import com.example.Service.ValidatorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+
+@RestController
+public class ValidatorController {
+
+  @Autowired
+    ValidatorService validatorService;
+
+  @Autowired
+    HotelService hotelService;
+
+  @RequestMapping(value = "/validiraj", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Validiraj findByHotel(@RequestBody Validiraj tmp)
+  {
+      return validatorService.save(tmp);
+  }
+
+  @RequestMapping(value = "/validacii", method = RequestMethod.GET)
+    public Iterable<Validiraj> findAll()
+  {
+      return validatorService.findAll();
+  }
+
+  @RequestMapping(value = "validacii/hotel/")
+    public Iterable<Validiraj> find(@RequestBody Hotel id)
+  {
+      return validatorService.findByHotelId(id);
+  }
+
+}
