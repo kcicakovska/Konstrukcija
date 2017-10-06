@@ -1,0 +1,25 @@
+package com.example.Service;
+
+import com.example.Model.Admin;
+//import com.example.Model.Hotel;
+import com.example.Model.Korisnik;
+import com.example.Repository.AdminRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AdminService {
+
+    @Autowired
+    AdminRepository adminRepository;
+
+    public Admin save(Admin tmp){return adminRepository.save(tmp);}
+
+
+   // public Iterable<Admin> findAll() {return adminRepository.findAll();}
+
+    public Iterable<Admin> findByKorisnikId(Korisnik id){return adminRepository.findBykorisnikById(id);}
+
+    //public Iterable<Admin> findByHotelId (Hotel id) {return adminRepository.findByHotelById(id);}
+
+}
